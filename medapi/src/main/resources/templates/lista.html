@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layouts/base::head(dark)">
+        <meta charset="utf-8">
+        <title>lista de pacientes</title> 
+    </head>
+    <body>
+    <section>
+        <link rel="icon" type="image/png" th:href="@{../img/medcon.png}"/>
+    </section>
+        <div class="container">
+            <div class="card bg-dark">
+                <div class="card-header">
+                    <h3> Lista de Pacientes </h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th th:text="#{consultas.Consulta.presencia}"></th>
+                                <th th:text="#{consultas.Consulta.paciente}"></th>
+                                <th th:text="#{consultas.Consulta.hora}"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="Consulta: ${consultas}">
+                                <td th:text="${Consulta.presencia}"></td>
+                                <td th:text="${Consulta.pacientes}"></td>
+                                <td th:text="${Consulta.hora}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <footer th:replace="layouts/base::footer(dark)"></footer>
+    </body>
+</html>

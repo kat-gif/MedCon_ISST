@@ -1,29 +1,38 @@
 package es.upm.dit.isst.medapi.model;
-
-import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 import javax.persistence.*;
 import javax.persistence.Id;
 
-@Entity
+@Entity     
 public class Consulta {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(unique = true, nullable = false)
     private Integer idconsulta;
 
-    private Integer idscon;
-    private String idsesp;
-    private LocalDate fecha;
-    private LocalTime horaini;
-    private LocalTime horafin;
-    private Duration tconsulta;
+    private Integer DNI;
+    private String nombre;
+    private LocalTime cita;
+    private Integer sala_espera;
+    private String sala_consulta;
+    private Boolean presencia;
     private String medico;
-    private String paciente;
+    private Boolean atendido;
 
-    public Consulta() {
+    protected Consulta() {}
+
+    public Consulta(Integer dNI, String nombre, LocalTime cita, Integer sala_espera, String sala_consulta,
+            Boolean presencia, String medico, Boolean atendido) {
+        DNI = dNI;
+        this.nombre = nombre;
+        this.cita = cita;
+        this.sala_espera = sala_espera;
+        this.sala_consulta = sala_consulta;
+        this.presencia = presencia;
+        this.medico = medico;
+        this.atendido = atendido;
     }
 
     public Integer getIdconsulta() {
@@ -34,52 +43,52 @@ public class Consulta {
         this.idconsulta = idconsulta;
     }
 
-    public Integer getIdscon() {
-        return idscon;
+    public Integer getDNI() {
+        return DNI;
     }
 
-    public void setIdscon(Integer idscon) {
-        this.idscon = idscon;
+    public void setDNI(Integer dNI) {
+        DNI = dNI;
     }
 
-    public String getIdsesp() {
-        return idsesp;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setIdsesp(String idsesp) {
-        this.idsesp = idsesp;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalTime getCita() {
+        return cita;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setCita(LocalTime cita) {
+        this.cita = cita;
     }
 
-    public LocalTime getHoraini() {
-        return horaini;
+    public Integer getSala_espera() {
+        return sala_espera;
     }
 
-    public void setHoraini(LocalTime horaini) {
-        this.horaini = horaini;
+    public void setSala_espera(Integer sala_espera) {
+        this.sala_espera = sala_espera;
     }
 
-    public LocalTime getHorafin() {
-        return horafin;
+    public String getSala_consulta() {
+        return sala_consulta;
     }
 
-    public void setHorafin(LocalTime horafin) {
-        this.horafin = horafin;
+    public void setSala_consulta(String sala_consulta) {
+        this.sala_consulta = sala_consulta;
     }
 
-    public Duration getTconsulta() {
-        return tconsulta;
+    public Boolean getPresencia() {
+        return presencia;
     }
 
-    public void setTconsulta(Duration tconsulta) {
-        this.tconsulta = tconsulta;
+    public void setPresencia(Boolean presencia) {
+        this.presencia = presencia;
     }
 
     public String getMedico() {
@@ -90,12 +99,21 @@ public class Consulta {
         this.medico = medico;
     }
 
-    public String getPaciente() {
-        return paciente;
+    public Boolean getAtendido() {
+        return atendido;
     }
 
-    public void setPaciente(String paciente) {
-        this.paciente = paciente;
+    public void setAtendido(Boolean atendido) {
+        this.atendido = atendido;
     }
+
+    @Override
+    public String toString() {
+        return "Consulta [DNI=" + DNI + ", atendido=" + atendido + ", cita=" + cita + ", idconsulta=" + idconsulta
+                + ", medico=" + medico + ", nombre=" + nombre + ", presencia=" + presencia + ", sala_consulta="
+                + sala_consulta + ", sala_espera=" + sala_espera + "]";
+    }
+
+
 
 }
