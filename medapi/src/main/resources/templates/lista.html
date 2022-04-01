@@ -11,7 +11,7 @@
         <div class="container">
             <div class="card bg-dark">
                 <div class="card-header">
-                    <h3> Lista de Pacientes </h3>
+                    <h3 th:text="#{consultas.lista.titulo}"></h3>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped">
@@ -24,9 +24,10 @@
                         </thead>
                         <tbody>
                             <tr th:each="Consulta: ${consultas}">
-                                <td th:text="${Consulta.presencia}"></td>
+                                <!--td th:text="${Consulta.presencia}"></td>
                                 <td th:text="${Consulta.pacientes}"></td>
-                                <td th:text="${Consulta.hora}"></td>
+                                <td th:text="${Consulta.hora}"></td-->
+                                <td><a th:href="@{consultas/}" th:text="#{consultas.paciente}"></a>
                             </tr>
                         </tbody>
                     </table>

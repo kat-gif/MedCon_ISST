@@ -1,7 +1,8 @@
 package es.upm.dit.isst.medapi.controller;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 
 import org.slf4j.*;
 import es.upm.dit.isst.medapi.model.Consulta;
@@ -10,19 +11,26 @@ import es.upm.dit.isst.medapi.repository.ConsultaRepository;
 @RestController
 public class ConsultaController {
 
-    private final ConsultaRepository consultaRepository;
+  private final ConsultaRepository consultaRepository;
+  public static final Logger log = LoggerFactory.getLogger(ConsultaController.class);
 
-    public static final Logger log = LoggerFactory.getLogger(ConsultaController.class);
+  public ConsultaController(ConsultaRepository t) {
+      this.consultaRepository = t;
 
-    public ConsultaController(ConsultaRepository t) {
+  }
 
-        this.consultaRepository = t;
+  @GetMapping("/consultas")
+  List<Consulta> readAll() {
+    return (List<Consulta>) consultaRepository.findAll();
 
-    }
+  }
 
-    @GetMapping("/consultas")
-    List<Consulta> readAll() {
-      return (List<Consulta>) consultaRepository.findAll();
+  @GetMapping("/consultas/{id}")
+  ResponseEntity<Consulta> read(@PathVariable Integer id) {
+    return consultaRepository.findById(id).map(consulta ->
+        ResponseEntity.ok().body(consulta)
+    ).orElse(new ResponseEntity<Consulta>(HttpStatus.NOT_FOUND));
+  }
 
-    }
+
 }
