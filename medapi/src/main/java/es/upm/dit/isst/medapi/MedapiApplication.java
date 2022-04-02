@@ -20,8 +20,11 @@ public class MedapiApplication {
 	public CommandLineRunner demo (ConsultaRepository repository) {
 		return (args) -> {
 			// guarda algunas consultas ya registradas al iniciar la aplicación.
-			repository.save(new Consulta(1234567, "katia", LocalTime.of(10,43,12), 1, "B",null,"Monica@medico.es",null));
-			repository.save(new Consulta(2345678, "alvaro", LocalTime.of(10,50,12), 1, "A",null,"Monica@medico.es",null));
+			repository.save(new Consulta(1234567, "Katia Alvarado Pelaez", LocalTime.of(10,43,12), 1, "B",null,"Monica@medico.es",null));
+			repository.save(new Consulta(2345678, "Alvaro Martin Brito", LocalTime.of(10,50,12), 1, "A",null,"Monica@medico.es",null));
+			repository.save(new Consulta(2345678, "Alvaro Martin Brito", LocalTime.of(10,50,12), 1, "A",null,"Monica@medico.es",null));
+	
+
 	    };
 	}
 }

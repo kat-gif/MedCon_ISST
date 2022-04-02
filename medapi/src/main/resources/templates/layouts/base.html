@@ -5,12 +5,9 @@
 <head th:fragment="head(tema)">
 	<meta charset="UTF-8"/>
 	<title> Agenda de Pacientes </title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/AgendaMedico.css}">
-	<link rel="icon" type="image/png" th:href="@{/img/medcon.png}"/>
 </head>
 
 <body>
-
 	<!-- Cabecera -->
 	<header th:fragment="header(tema)">
 		<nav th:class="|navbar navbar-expand-lg navbar-${tema} bg-${tema}|">

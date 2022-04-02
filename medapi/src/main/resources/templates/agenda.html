@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/Agenda.css}">
+        <link rel="icon" type="image/png" th:href="@{/img/medcon_icon.png}"/>
+        <title>MedCon-Agenda del médico</title>
+    </head>
+
+    <body>
+        <header>
+            <img id="logo" th:src="@{../../img/medcon.PNG}"/>
+            <nav>
+                <ul>
+                <li><a href="#">Sección 1</a></li>
+                <li><a href="#">Sección 2</a></li>
+                <li><a href="#">Sección 3</a></li>
+                <li><a href="#">Sección 4</a></li>
+                </ul>
+          </nav>
+            
+        </header>
+        <div>
+            <table id="pacientes" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th th:text="#{consultas.Consulta.presencia}"></th>
+                        <th th:text="#{consultas.Consulta.paciente}"></th>
+                        <th th:text="#{consultas.Consulta.hora}"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="Consulta: ${consultas}">
+                        <td id="presencia" th:text="${Consulta.presencia}"></td>
+                        <td th:text="${Consulta.nombre}"></td>
+                        <td th:text="${Consulta.cita}"></td>
+                        <!--td  <td><a th:href="@{lista/}" th:text="#{consultas.paciente}"></a></td-->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <footer>
+            <div class="footer-content">
+                <h3>MedCon</h3>
+                <p>Términos y condiciones | Política de privacidad | Política de cookies | Aviso Legal </p>
+            </div>
+        </footer>
+    </body>
+</html>
