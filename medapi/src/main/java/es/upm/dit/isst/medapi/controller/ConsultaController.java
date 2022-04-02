@@ -1,6 +1,7 @@
 package es.upm.dit.isst.medapi.controller;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 
@@ -27,6 +28,16 @@ public class ConsultaController {
   @GetMapping("/consultas/medico/{id}")
   List<Consulta> readMedico(@PathVariable String id) {
     return (List<Consulta>) consultaRepository.findByMedico(id);
+  }
+
+  //  @GetMapping("/consultas/medico/{medico}")
+  // List<Consulta> readMedico(@PathVariable String medico) {
+  //   return (List<Consulta>) consultaRepository.findByMedico(medico);
+  // }
+
+  @GetMapping("/consultas/paciente/{id}")
+  List<Consulta> readPacientes(@PathVariable String id) {
+    return (List<Consulta>) consultaRepository.findByNombre(id);
   }
 
 }

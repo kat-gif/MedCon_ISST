@@ -21,23 +21,48 @@ public class ConsultaControllerWeb {
         return "login";        
     }
 
+    @GetMapping("/close")
+    public String close(){
+        return "redirect:/medcon/login";
+    }
+
     @GetMapping("/enter")
     public String enter(){
         return "redirect:/medcon/agenda";
     }
     
     @GetMapping("/agenda")
-    public String lista (Model model) {
+    public String lista (Model model){
         List<Consulta> lista = new ArrayList<Consulta>();
         lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING, Consulta[].class).getBody());
         model.addAttribute("consultas", lista);
         return "agenda";
     }
 
-    /*@GetMapping("/login")
-    public String login (Model model, Principal principal) {
-        if (principal == null || principal.getName().equals(""))
-        return "login";        
+    // @GetMapping("/agenda/{medico}")
+    // public String lista (Model model, @PathVariable String medico){
+    //     List<Consulta> lista = new ArrayList<Consulta>();
+    //     lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + medico, Consulta[].class).getBody());
+    //     model.addAttribute("consultas", lista);
+    //     return "agenda";
+    // }
+
+    @GetMapping("/ficha")
+    public String ficha(){
+        return "FichaPaciente";
+    }
+
+   /* public String paciente (Model model){
+        List<Consulta> paciente = new ArrayList<Consulta>();
+        Consulta consulta = restTemplate.getForObject(CONSULTAMANAGER_STRING + "paciente/", Consulta.class);
+        paciente.add(consulta);
+        model.addAttribute("paciente", consulta);
+        return "FichaPaciente";
+    }*/
+
+   /* @PostMapping("/presencia")
+    public String lista (Model model) {
+       
     }*/
 
     

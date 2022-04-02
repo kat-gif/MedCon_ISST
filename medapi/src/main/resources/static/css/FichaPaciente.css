@@ -1,0 +1,144 @@
+/* Para la parte de la pantalla de la ficha del paciente*/
+
+#foto{
+    width: 99px;
+    height: 62px;
+}
+
+#Llamada_paciente{
+    width: 173px;
+    height: 39px;
+    padding: 0px 10px 0px 10px;
+    background: #5cb85c;
+    color: #ffffff;
+    border-color: #4cae4c;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px 3px 3px 3px;
+    font-family: "Helvetica";
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+#Cerrar_Consulta{
+        width: 173px;
+        height: 39px;
+        color: #000000;
+        background:  red;
+        font-family: "Roboto";
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 1.3;
+        text-align: center;
+}
+
+#Regreso_Vista{
+    width: 90px;
+    height: 41px;
+    background: #98e6e2;
+    color: #2f6362;
+    border-color: #2f6362;
+    border-width: 3px;
+    border-style: solid;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+
+}
+
+#Historial{
+    width: 222px;
+    height: 90px;
+    background: #3da8a2;
+    color: #ffffff;
+    border-color: #2d4b5a;
+    border-width: 2px;
+    border-style: solid;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.3;
+    text-align: center;
+    margin-left: 15px;
+}
+
+#Recetas{
+    width: 200px;
+    height: 90px;
+    background: #3da8a2;
+    color: #ffffff;
+    border-color: #2d4b5a;
+    border-width: 2px;
+    border-style: solid;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+
+}
+
+#Pruebas{
+    width: 222px;
+    height: 90px;
+    background: #3da8a2;
+    color: #ffffff;
+    border-color: #2d4b5a;
+    border-width: 2px;
+    border-style: solid;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.3;
+    text-align: center;
+}
+
+#Nueva_Cita{
+    width: 222px;
+    height: 90px;
+    background: #3da8a2;
+    color: #ffffff;
+    border-color: #2d4b5a;
+    border-width: 2px;
+    border-style: solid;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.3;
+    text-align: center;
+    margin-right: 10px;
+
+}
+
+#Llamada_paciente{
+    margin-left: 15px;
+}
+
+#Cerrar_Consulta{
+    margin-right: 15px;
+}
+#Regreso_Vista{
+    margin-left: 15px;
+}
+
+#botonera{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+
+#llamadas{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+h4{
+    text-align: center;
+    font-size: large;
+}
+
+p{
+    text-align: center;  
+}
+

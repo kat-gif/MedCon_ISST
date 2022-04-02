@@ -1,83 +1,31 @@
-<!-- !DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" th:href="@{/css/Agenda.css}">
-        <link rel="icon" type="image/png" th:href="@{/img/medcon_icon.png}"/>
-        <title>MedCon-Agenda del médico</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css%22%3E">
-    </head>
-
-    <body>
-            <img id="logo" th:src="@{../../img/medcon.PNG}"/>
-            <div>
-                <div class="dropdown">
-                <button type="button" data-toggle="dropdown">Dr./Dra.Apellido <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                <li><a th:href="@{/login}">Cerrar Sesión</a></li>
-                </ul>
-                </div>
-            </div>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js%22%3E"></script>
-                <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js%22%3E"></script>
-        <div>
-            <table id="pacientes" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th th:text="#{consultas.Consulta.presencia}"></th>
-                        <th th:text="#{consultas.Consulta.paciente}"></th>
-                        <th th:text="#{consultas.Consulta.hora}"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="Consulta: ${consultas}">
-                        <td id="presencia" th:text="${Consulta.presencia}"></td>
-                        <td th:text="${Consulta.nombre}"></td>
-                        <td th:text="${Consulta.cita}"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <footer>
-            <div class="footer-content">
-                <h3>MedCon</h3>
-                <p>Términos y condiciones | Política de privacidad | Política de cookies | Aviso Legal </p>
-            </div>
-        </footer>
-    </body>
-</html> -->
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/Agenda.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/Agenda.css}"/>
     <link rel="icon" type="image/png" th:href="@{/img/medcon_icon.png}" />
     <title>MedCon - Agenda del médico</title>
     <img id="logo" th:src="@{../../img/medcon.PNG}" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
         
         <div class="container">
             <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dr./Dra.Apellido <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-         <li><a th:href="@{/login}">Cerrar Sesión</a></li>
-            </ul>
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dr./Dra.Mónica <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a th:href="@{close}">Cerrar Sesión</a></li>
+                </ul>
             </div>
-           </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-  <!--td  Añadir nuevoooo"></a></td    FORMA 1-->
-
-
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <input type="date" id="start" name="trip-start" value="2022-03-31" min="2022-03-30" max="2022-07-01">
+    <div id="fecha">
+        <input type="date" id="start" name="trip-start" value="2022-03-31" min="2022-03-30" max="2022-07-01">
+        </div>
     <div>
         <table id="pacientes" class="table table-striped">
             <thead>
@@ -92,7 +40,6 @@
                     <td id="presencia" th:text="${Consulta.presencia}"></td>
                     <td th:text="${Consulta.nombre}"></td>
                     <td th:text="${Consulta.cita}"></td>
-                    <!--td  <td><a th:href="@{lista/}" th:text="#{consultas.paciente}"></a></td-->
                 </tr>
             </tbody>
         </table>

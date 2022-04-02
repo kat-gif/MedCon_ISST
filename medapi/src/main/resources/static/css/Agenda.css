@@ -1,3 +1,5 @@
+/* Para la parte de la pantalla de Inicio de Sesión*/
+
 header{
 
     position: fixed;
@@ -41,6 +43,7 @@ table thead th{
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     font-size: larger;
+    text-align:center;
 }
 
 tr, td{
@@ -121,5 +124,12 @@ footer{
 
 .dropdown{
     margin-left: 950px;
+}
+#fecha{
+    size: 50px;
+    flex-direction: column;
+    margin-left: 510px;
+    margin-bottom: 20px;
+
 }
 

@@ -1,8 +1,9 @@
 
-/* Para la parte de la pantalla de Inicio de Sesión*/
+/* Para la parte de la pantalla de Registro del Médico*/
 
 img{
-    height: 150px;
+    height: 100px;
+    margin-left: 30px;
 }
 
 h2 {

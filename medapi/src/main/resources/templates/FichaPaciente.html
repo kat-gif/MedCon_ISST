@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Ficha del Paciente</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/FichaPaciente.css">
+    <link rel="icon" type="image/png" th:href="@{/img/medcon_icon.png}" />
+
+</head>
+
+<div id="ficha">
+    <img id="logo" th:src="@{../../img/medcon.PNG}" /> 
+
+    <section id="llamadas">
+        <button id="Llamada_paciente" onclick="">Llamar Paciente</button>
+        <p>Tiempo Paciente:</p>
+        <button id="Cerrar_Consulta" onclick="">Cerrar Consulta</button>
+    </section>
+
+    <div>
+        <button id="Regreso_Vista" onclick="">Back</button>
+        <h4>Consulta F</h4>
+
+                <td th:text="${paciente}"></td> <!--prueba-->
+
+        <p><b> Nombre: </b> Ada Lovelace</p>
+        <p><b>Hora: </b> 8:30</p>
+        <p><b> Acto:</b> Presencial</p>
+
+    </div>
+    <section id="botonera">
+        <button id="Historial" onclick="">Historial Clinico</button>
+        <button id="Recetas" onclick="">Receta Electrónica</button>
+        <button id="Pruebas" onclick="">Pruebas Diagnósticas</button>
+        <button id="Nueva_Cita" onclick="">Nueva Cita</button>
+    </section>
+
+</div>
+
+
+
+
+</html>
