@@ -119,20 +119,7 @@ footer{
     color: #cacdd2;
 }
 
-ul{
-    
-    padding: auto;
-    }
-     
-    li{
-    list-style: none;
-    display: inline;
-    padding-right: 10px;
-    }
-     
-    body > header{
-    background: #333;
-    }
-
-
+.dropdown{
+    margin-left: 950px;
+}
 

@@ -21,18 +21,24 @@ public class ConsultaControllerWeb {
         return "login";        
     }
 
-    @GetMapping("/juan")
-    public String juan() {
-        return "juanfran";        
+    @GetMapping("/enter")
+    public String enter(){
+        return "redirect:/medcon/agenda";
     }
-
+    
     @GetMapping("/agenda")
-    public String lista (Model model, Principal principal) {
+    public String lista (Model model) {
         List<Consulta> lista = new ArrayList<Consulta>();
         lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING, Consulta[].class).getBody());
         model.addAttribute("consultas", lista);
         return "agenda";
     }
+
+    /*@GetMapping("/login")
+    public String login (Model model, Principal principal) {
+        if (principal == null || principal.getName().equals(""))
+        return "login";        
+    }*/
 
     
 }

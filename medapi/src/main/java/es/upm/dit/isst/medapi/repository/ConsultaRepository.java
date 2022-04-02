@@ -8,5 +8,6 @@ import es.upm.dit.isst.medapi.model.Consulta;
 public interface ConsultaRepository extends CrudRepository<Consulta, Integer>{
 
     List<Consulta> findByNombre(String nombre);
+    List<Consulta> findByMedico(String medico);
 
 }

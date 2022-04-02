@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="layouts/base::head(dark)">
+    <head>
+        <title>Inicio Sesión</title>
         <meta charset="utf-8">
-        <title>lista de pacientes</title> 
+        <link rel = "stylesheet" type= "text/css"th:href="@{/css/Login.css}">
     </head>
-    <body>
-    <h1>HOLA Mundo</h1>
-    </body>
+        <body>
+            <section id="mid-left">
+                <img id ="foto" th:src="@{../../img/medcon.PNG}"> 
+                <h2>Centro Médico Higía</h2>
+                <h4>Acceso a la Agenda</h4>
+            </section>
+        
+            <section id="mid-right">
+                <h3>Inicio de Sesión</h3>
+                <p>Introduzca el nombre de usuario y la contraseña y pulse Enter</p>
+                <!-- <div id="usuario">
+                    <input type="text" id="user" placeholder="Usuario">
+                </div>  
+                <div id="contraseña">
+                    <input type="text" id="password" placeholder="Contraseña">
+                </div>
+                <div id="boton">
+                    <button id="enter" onclick="pacientes()">Enter</button>
+                </div> -->
+                <form th:action="@{/login}" method="post">
+                    <div id="usuario">
+                        <input type="text" id="user" placeholder="Usuario">
+                    </div>  
+                    <div id="contraseña">
+                        <input type="text" id="password" placeholder="Contraseña">
+                    </div>
+                    <div>
+                        <a id="enter" th:href="@{enter}" class="btn btn-outline-primary btn-block" th:text="#{consultas.acciones.enter}"></a>
+                    </div>
+                </form>
+            </section>
+        
+        </body>
 </html>

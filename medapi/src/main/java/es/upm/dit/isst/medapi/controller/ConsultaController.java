@@ -22,15 +22,11 @@ public class ConsultaController {
   @GetMapping("/consultas")
   List<Consulta> readAll() {
     return (List<Consulta>) consultaRepository.findAll();
-
   }
 
-  @GetMapping("/consultas/{id}")
-  ResponseEntity<Consulta> read(@PathVariable Integer id) {
-    return consultaRepository.findById(id).map(consulta ->
-        ResponseEntity.ok().body(consulta)
-    ).orElse(new ResponseEntity<Consulta>(HttpStatus.NOT_FOUND));
+  @GetMapping("/consultas/medico/{id}")
+  List<Consulta> readMedico(@PathVariable String id) {
+    return (List<Consulta>) consultaRepository.findByMedico(id);
   }
-
 
 }

@@ -19,12 +19,13 @@ public class Consulta {
     private String sala_consulta;
     private Boolean presencia;
     private String medico;
+    public String pass;
     private Boolean atendido;
 
     protected Consulta() {}
 
     public Consulta(Integer dNI, String nombre, LocalTime cita, Integer sala_espera, String sala_consulta,
-            Boolean presencia, String medico, Boolean atendido) {
+            Boolean presencia, String medico, String pass, Boolean atendido) {
         DNI = dNI;
         this.nombre = nombre;
         this.cita = cita;
@@ -32,6 +33,7 @@ public class Consulta {
         this.sala_consulta = sala_consulta;
         this.presencia = presencia;
         this.medico = medico;
+        this.pass = pass;
         this.atendido = atendido;
     }
 
@@ -97,6 +99,14 @@ public class Consulta {
 
     public void setMedico(String medico) {
         this.medico = medico;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public Boolean getAtendido() {
