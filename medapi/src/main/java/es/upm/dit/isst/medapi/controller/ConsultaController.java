@@ -19,14 +19,14 @@ public class ConsultaController {
       this.consultaRepository = t;
 
   }
-
+  
   @GetMapping("/consultas")
   List<Consulta> readAll() {
     return (List<Consulta>) consultaRepository.findAll();
   }
 
   @GetMapping("/consultas/medico/{medico}")
-  List<Consulta> readMedico(@PathVariable String medico) {
+  List<Consulta> readByMedico(@PathVariable String medico) {
     return (List<Consulta>) consultaRepository.findByMedico(medico);
   }
 

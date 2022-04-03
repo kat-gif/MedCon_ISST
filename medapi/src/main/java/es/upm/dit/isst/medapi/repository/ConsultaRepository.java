@@ -9,5 +9,4 @@ public interface ConsultaRepository extends CrudRepository<Consulta, Integer>{
 
     List<Consulta> findByNombre(String nombre);
     List<Consulta> findByMedico(String medico);
-
 }

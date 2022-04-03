@@ -30,7 +30,7 @@
                         Dr./Dra.Apellido
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" th:href="@{/medcon/login}">Cerrar Sesión</a></li>
+                        <li><a class="dropdown-item" th:href="@{close}">Cerrar Sesión</a></li>
                     </ul>
                 </li>
                 </ul>
@@ -56,7 +56,7 @@
                     <tbody>
                         <tr th:each="Consulta: ${consultas}">
                             <td id="presencia" th:text="${Consulta.presencia}"></td>
-                            <td><a th:href="@{'consulta/{id}'(id=${Consulta.idconsulta})}" th:text="${Consulta.nombre}"></a></td>
+                            <td><a th:href="@{ficha/} + ${Consulta.nombre}" th:text="${Consulta.nombre}"></a></td>
                             <td th:text="${Consulta.cita}"></td>
                         </tr>
                     </tbody>

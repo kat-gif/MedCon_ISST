@@ -2,7 +2,6 @@ package es.upm.dit.isst.medapi.model;
 import java.time.LocalTime;
 
 import javax.persistence.*;
-import javax.persistence.Id;
 
 @Entity     
 public class Consulta {
@@ -18,6 +17,8 @@ public class Consulta {
     private Integer sala_espera;
     private String sala_consulta;
     private Boolean presencia;
+
+    @Column(name = "medico")
     private String medico;
     public String pass;
     private Boolean atendido;
