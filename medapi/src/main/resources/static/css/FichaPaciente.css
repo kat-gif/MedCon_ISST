@@ -5,7 +5,7 @@
     height: 62px;
 }
 
-#Llamada_paciente{
+#Llamada_paciente_old{
     width: 173px;
     height: 39px;
     padding: 0px 10px 0px 10px;
@@ -21,7 +21,7 @@
     text-align: center;
 }
 
-#Cerrar_Consulta{
+#Cerrar_Consulta_old{
         width: 173px;
         height: 39px;
         color: #000000;
@@ -125,11 +125,10 @@
 #botonera{
   display: flex;
   justify-content: space-between;
-  margin-top: 100px;
+  margin-top: 2%;
 }
 
 #llamadas{
-    display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
 }
@@ -142,3 +141,93 @@ p{
     text-align: center;  
 }
 
+
+.navbar-correccion{
+    flex-grow: 0 !important;
+}
+
+
+.bgcolor-principal {
+    background: #387e7d;
+}
+
+.btn-principal {
+    background-color: #387e7d !important;
+    border-color: #387e7d !important;
+}
+
+
+footer{
+    background: #387e7d;
+    padding: 1em 0;
+    text-align: center;
+    margin-top: auto;
+    color: #cacdd2;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+    color: #cacdd2;
+}
+table#pacientes{
+    padding: 40px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-color: #387e7d;
+    border-width: 2px;
+    border-style: solid;
+    table-layout: auto;
+    width: 1218px;
+}
+
+thead tr{
+    background-color: #387e7d;
+    margin: 40px;
+    padding: 40px;
+} 
+
+table thead th{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: larger;
+}
+
+tr, td{
+    border: #387e7d 2px solid;
+    margin: 15px;
+    padding: 15px;
+    text-align: center;
+}
+
+td#presencia{
+    width: 136px;
+}
+
+table tr td{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+
+li{
+    list-style: none;
+    font-size:25px;
+}
+
+#volver{
+    margin-left: 15%;
+    margin-right: 15%;
+}
