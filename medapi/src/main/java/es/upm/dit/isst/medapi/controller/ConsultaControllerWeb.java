@@ -17,12 +17,8 @@ public class ConsultaControllerWeb {
     private RestTemplate restTemplate = new RestTemplate();
 
     @GetMapping("/login")
-    public String login(Model model) {
-        List<Consulta> lista = new ArrayList<Consulta>();
-        lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING, Consulta[].class).getBody());
-        model.addAttribute("consultas", lista);
-        return "login"; 
-        // Consulta consulta = restTemplate.getForObject(CONSULTAMANAGER_STRING + medico)      
+    public String login() {
+        return "login";     
     }
 
     @GetMapping("/close")
@@ -30,57 +26,40 @@ public class ConsultaControllerWeb {
         return "redirect:/medcon/login";
     }
 
-    // @GetMapping("/enter")
-    // public String enter(@RequestParam String medico){
-    //     return "redirect:/medcon/agenda/{medico}";
-    // }
-
-    @GetMapping("/enter")
-    public String enter(){
-        return "redirect:/medcon/agenda";
-    }
-    
-    // @GetMapping("/agenda")
-    // public String lista (Model model){
-    //     List<Consulta> lista = new ArrayList<Consulta>();
-    //     lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING, Consulta[].class).getBody());
-    //     model.addAttribute("consultas", lista);
-    //     return "agenda";
-    // }
-
-    @GetMapping("/agenda/{medico}")
-    public String agendaMedico(Model model, @PathVariable(value ="medico") String medico){
+    @RequestMapping("/agenda")
+    public String agendaMedicoLogin(Model model, @RequestParam("medico") String medico){
         List<Consulta> lista = new ArrayList<Consulta>();
         lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + "medico/" + medico, Consulta[].class).getBody());
-        model.addAttribute("consultas", lista);
+        model.addAttribute("consultasMedico", lista);
         return "agenda";
     }
 
-    // @GetMapping("agenda/ficha")
-    // public String ficha(){
-    //     return "FichaPaciente";
-    // }
-
-    @GetMapping("agenda/ficha/{nombre}")
+    // Pide una lista de las consultas filtradas por el {nombre} del paciente introducido en la ruta y lo manda 
+    @GetMapping("ficha/{nombre}")
     public String fichaPaciente(Model model, @PathVariable(value ="nombre") String nombre){
         List<Consulta> lista = new ArrayList<Consulta>();
         lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + "paciente/" + nombre, Consulta[].class).getBody());
-        model.addAttribute("consultas", lista);
+        model.addAttribute("consultasPaciente", lista);
         return "FichaPaciente";
     }
 
-   /* public String paciente (Model model){
-        List<Consulta> paciente = new ArrayList<Consulta>();
-        Consulta consulta = restTemplate.getForObject(CONSULTAMANAGER_STRING + "paciente/", Consulta.class);
-        paciente.add(consulta);
-        model.addAttribute("paciente", consulta);
-        return "FichaPaciente";
-    }*/
+    @GetMapping("ficha/historialClinico")
+    public String historialClinico(){
+        return "historialClinico";
+    }
 
-   /* @PostMapping("/presencia")
-    public String lista (Model model) {
-       
-    }*/
+    @GetMapping("ficha/recetas")
+    public String recetas(){
+        return "recetas";
+    }
 
-    
+    @GetMapping("ficha/pruebasDiagnosticas")
+    public String pruebas(){
+        return "pruebasDiagnosticas";
+    }
+
+    @GetMapping("ficha/nuevaCita")
+    public String nuevaCita(){
+        return "nuevasCitas";
+    }
 }

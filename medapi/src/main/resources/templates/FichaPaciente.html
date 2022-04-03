@@ -42,22 +42,23 @@
                 Acto: 
                 Presencial
             </p> -->
-            <tr th:each="Consulta: ${consultas}">
-                <td><a class="btn btn-primary btn-principal text-white " th:href="@{/medcon/agenda/} + ${Consulta.medico}">Volver</a></td>
+            <tr th:each="Consulta: ${consultasPaciente}">
+                <!--td><a class="btn btn-primary btn-principal text-white " th:href="@{/medcon/volver}">Volver</a></td-->
+                <td><input class="btn btn-primary btn-principal text-white" type="button" onclick="history.back()" name="Volver" value="Volver"></td>
                 <td th:text="${Consulta.sala_consulta}"></td>
                 <td th:text="${Consulta.nombre}"></td>
                 <td th:text="${Consulta.cita}"></td>
             </tr>
         </div>
         <section id="botonera">
-            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{/medcon/login}" role="button"> Historial
+            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{historialClinico}" role="button"> Historial
                 Clínico
             </a>
-            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{/medcon/login}" role="button"> Receta Electrónica
+            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{recetas}" role="button"> Receta Electrónica
             </a>
-            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{/medcon/login}" role="button"> Pruebas Diagnósticas
+            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{pruebasDiagnosticas}" role="button"> Pruebas Diagnósticas
             </a>
-            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{/medcon/login}" role="button"> Nueva Cita
+            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{nuevaCita}" role="button"> Nueva Cita
             </a>
         </section>
 

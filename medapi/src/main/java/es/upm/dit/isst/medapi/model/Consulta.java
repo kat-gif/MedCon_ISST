@@ -17,8 +17,6 @@ public class Consulta {
     private Integer sala_espera;
     private String sala_consulta;
     private Boolean presencia;
-
-    @Column(name = "medico")
     private String medico;
     public String pass;
     private Boolean atendido;

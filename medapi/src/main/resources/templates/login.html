@@ -15,22 +15,23 @@
             <section id="mid-right">
                 <h3>Inicio de Sesión</h3>
                 <p>Introduzca el nombre de usuario y <br> la contraseña y pulse Enter</p>
-                <!--form th:action="@{/login}" th:object="${Consulta}" method="post">    
+                <form th:action="@{/medcon/agenda}" method="post">    
                     <div id="usuario">
-                        <input type="text" id="user" name="medico" th:field="*{medico}" placeholder="Usuario">
+                        <input type="text" id="user" name="medico" placeholder="Usuario">
                     </div>  
                     <div id="contraseña">
                         <input type="password" id="password" placeholder="Contraseña">
                     </div>
                     <div>
-                        <a id="enter" th:href="@{/medcon/agenda/} + ${Consulta.medico}" class="btn btn-outline-primary btn-block" th:text="#{consultas.acciones.enter}"></a>
+                        <!--a id="enter" th:href="@{/medcon/agenda/}" class="btn btn-outline-primary btn-block" th:text="#{consultas.acciones.enter}"></a-->
+                        <input type="submit" value="Enter">
                     </div>
-                </form-->
-                <tr th:each="Consulta: ${consultas}">
+                </form>
+                <!--tr th:each="Consulta: ${consultas}">
                     <td><input type="text" id="user" th:object="${Consulta.medico}" placeholder="Usuario"></td>
                     <td><input type="password" id="password" placeholder="Contraseña"></td>
                     <a id="enter" th:href="@{/medcon/agenda/} + ${Consulta.medico}" class="btn btn-outline-primary btn-block" th:text="#{consultas.acciones.enter}"></a>
-                </tr>
+                </tr-->
             </section>
         
         </body>

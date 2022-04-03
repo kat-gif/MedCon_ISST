@@ -54,7 +54,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="Consulta: ${consultas}">
+                        <tr th:each="Consulta: ${consultasMedico}">
                             <td id="presencia" th:text="${Consulta.presencia}"></td>
                             <td><a th:href="@{ficha/} + ${Consulta.nombre}" th:text="${Consulta.nombre}"></a></td>
                             <td th:text="${Consulta.cita}"></td>
