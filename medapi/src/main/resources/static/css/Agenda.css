@@ -1,7 +1,4 @@
-/* Para la parte de la pantalla de Inicio de Sesión*/
-
-header{
-
+ header{
     position: fixed;
 }
 
@@ -13,14 +10,17 @@ img#logo{
     height: 62px;
 }
 body{
-    margin-top: 40px;
+    font-family: sans-serif;
+  /*  margin-top: 40px;
     padding-top: 40px;
     background: #fcfcfc;
-    font-family: sans-serif;
+    
     min-height: 100vh; 
     display: flex;
-    flex-direction: column;
+    flex-direction: column;*/
 }
+
+
 
 table#pacientes{
     padding: 40px;
@@ -43,7 +43,6 @@ table thead th{
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     font-size: larger;
-    text-align:center;
 }
 
 tr, td{
@@ -104,6 +103,9 @@ footer{
     text-align: center;
     margin-top: auto;
     color: #cacdd2;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-content{
@@ -122,14 +124,16 @@ footer{
     color: #cacdd2;
 }
 
-.dropdown{
-    margin-left: 950px;
-}
-#fecha{
-    size: 50px;
-    flex-direction: column;
-    margin-left: 510px;
-    margin-bottom: 20px;
 
+.bgcolor-principal {
+    background: #387e7d;
 }
 
+.btn-principal {
+    background-color: #387e7d !important;
+    border-color: #387e7d !important;
+}
+
+.navbar-correccion{
+    flex-grow: 0 !important;
+}

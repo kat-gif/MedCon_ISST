@@ -25,19 +25,14 @@ public class ConsultaController {
     return (List<Consulta>) consultaRepository.findAll();
   }
 
-  @GetMapping("/consultas/medico/{id}")
-  List<Consulta> readMedico(@PathVariable String id) {
-    return (List<Consulta>) consultaRepository.findByMedico(id);
+  @GetMapping("/consultas/medico/{medico}")
+  List<Consulta> readMedico(@PathVariable String medico) {
+    return (List<Consulta>) consultaRepository.findByMedico(medico);
   }
 
-  //  @GetMapping("/consultas/medico/{medico}")
-  // List<Consulta> readMedico(@PathVariable String medico) {
-  //   return (List<Consulta>) consultaRepository.findByMedico(medico);
-  // }
-
-  @GetMapping("/consultas/paciente/{id}")
-  List<Consulta> readPacientes(@PathVariable String id) {
-    return (List<Consulta>) consultaRepository.findByNombre(id);
+  @GetMapping("/consultas/paciente/{nombre}")
+  List<Consulta> readPacientes(@PathVariable String nombre) {
+    return (List<Consulta>) consultaRepository.findByNombre(nombre);
   }
 
 }

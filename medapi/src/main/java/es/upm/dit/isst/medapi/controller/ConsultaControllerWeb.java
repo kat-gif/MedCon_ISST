@@ -17,7 +17,7 @@ public class ConsultaControllerWeb {
     private RestTemplate restTemplate = new RestTemplate();
 
     @GetMapping("/login")
-    public String login() {
+    public String login(Model model) {
         return "login";        
     }
 
@@ -25,6 +25,11 @@ public class ConsultaControllerWeb {
     public String close(){
         return "redirect:/medcon/login";
     }
+
+    // @GetMapping("/enter")
+    // public String enter(@RequestParam String medico){
+    //     return "redirect:/medcon/agenda/{medico}";
+    // }
 
     @GetMapping("/enter")
     public String enter(){
@@ -40,10 +45,10 @@ public class ConsultaControllerWeb {
     }
 
     // @GetMapping("/agenda/{medico}")
-    // public String lista (Model model, @PathVariable String medico){
+    // public String lista (Model model, @PathVariable(value ="medico") String medico){
     //     List<Consulta> lista = new ArrayList<Consulta>();
-    //     lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + medico, Consulta[].class).getBody());
-    //     model.addAttribute("consultas", lista);
+    //     lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + "medico/" + medico, Consulta[].class).getBody());
+    //     model.addAttribute("consultas_m", lista);
     //     return "agenda";
     // }
 
