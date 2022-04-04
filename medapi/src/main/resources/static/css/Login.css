@@ -1,6 +1,9 @@
 
 /* Para la parte de la pantalla de Registro del Médico*/
-
+body{
+    font-size: 16px;
+    font-family: "Helvetica";
+}
 img{
     height: 100px;
     margin-left: 30px;
@@ -12,9 +15,25 @@ h2 {
     color: #387e7d;
     font-family: fantasy;
     font-weight: 400;
-    font-size: 72px;
+    font-size: 100px;
     line-height: 1.3;
     text-align: center;
+    letter-spacing: 4px;
+    margin-left: 10%;
+}
+
+h3{
+    width: 390px;
+    height: 77px;
+    padding: 8px 8px 8px 8px;
+    color: #fdfefe;
+    font-family: "Arapey";
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 1.3;
+    text-align:left;
+    margin-top: 100px;
+    padding-left: 110px;
 }
 
 h4{
@@ -34,21 +53,6 @@ h4{
     margin-bottom: 100px;
 }
 
-h3{
-
-    width: 390px;
-    height: 77px;
-    padding: 8px 8px 8px 8px;
-    color: #fdfefe;
-    font-family: "Arapey";
-    font-weight: bold;
-    font-size: 55px;
-    line-height: 1.3;
-    text-align:right;
-    margin-top: 100px;
-    padding-left: 110px;
-}
-
 #mid-left{
     width: 621px;
     height: 768px;
@@ -65,10 +69,32 @@ h3{
     border-width: 1px;
     border-style: solid;
     float: right;
+    text-align: center;
 }
+
+#usuario{
+    width: 250px;
+    height: 35px;
+    color: #999999;
+    font-family: "Helvetica";
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#contraseña{
+    width: 250px;
+    height: 35px;
+    color: #999999;
+    font-family: "Helvetica";
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
 #enter{
     width: 70px;
-    height: 41px;
+    height: 40px;
     padding: 0px 10px 0px 10px;
     background: #ffffff;
     color: #000000;
@@ -79,45 +105,23 @@ h3{
     font-family: "Arapey";
     font-weight: bold;
     font-size: 20px;
-    text-align: center;
-    margin-left: 270px;
-}
-
-#usuario{
-    width: 250px;
-    height: 60px;
-    color: #999999;
-    font-family: "Helvetica";
-    font-weight: 400;
-    font-size: 14px;
-    text-align: left;
-    margin-bottom: 20px;
-    padding-top: 80px;
-}
-#contraseña{
-    width: 250px;
-    height: 60px;
-    color: #999999;
-    font-family: "Helvetica";
-    font-weight: 400;
-    font-size: 14px;
-    text-align: left;
-    margin-bottom: 20px;
-
+    margin-left: 30%;
 }
 
 p{
-    font-family: "Helvetica";
-    text-align: center;
+    font-family: serif;
+    text-align: right;
     font-size: 20px;
     font-weight: bold;
-
+    margin-right: 30%;
 }
+
 #user{
     width: 200px;
     height: 20px;
     margin-left: 200px;
 }
+
 #password{
     width: 200px;
     height: 20px;
