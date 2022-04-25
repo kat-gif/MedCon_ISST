@@ -45,23 +45,41 @@
             <div class="row justify-content-md-center">    
                 <div class="col-md-8">
                     <div class="card mb-4 rounded-3 shadow-sm">
-                        <div class="card-header py-3 text-white btn-principal">
+                        <!--div class="card-header py-3 text-white btn-principal">
                             <h4 class="my-0 fw-normal text-center">Ficha del paciente</h4>
-                        </div>
-                        <div class="card-body">
+                        </div-->
+                       <!--<div class="card-body"> -->
                             
-                        <ul th:each="Consulta: ${consultasPaciente}">
-                            <li class="text-center">Sala de consulta: <span th:text="${Consulta.sala_consulta}"></span></li>
-                            <li class="text-center">Nombre: <span th:text="${Consulta.nombre}"></span></li>
-                            <li class="text-center">Cita: <span th:text="${Consulta.cita}"></span></li> 
-                            <br>               
-                            <li class="text-center">
-                                <button id="Llamada_paciente" class="btn btn-primary" onclick="">Llamar Paciente</button>
-                                <input class="btn btn-primary btn-principal text-white" type="button" onclick="history.back()" 
-                                       name="Volver" value="Volver">
-                                <button id="Cerrar_Consulta" class="btn btn-danger" onclick="">Cerrar Consulta</button>
-                            </li>
-                        </ul>
+                            <ul th:each="Consulta: ${consultasPaciente}">
+                                <div class="card-header py-3 text-white btn-principal">
+                                    <h4 class="my-0 fw-normal text-center">
+                                        <span style="font-weight: bold;" th:text="${Consulta.paciente.nombre}"></span>
+                                    </h4>
+                                </div>
+                                <li class="text-center"> <strong>Consulta:</strong>  &nbsp;
+                                    <span th:text="${Consulta.sala_consulta}"></span> &nbsp;
+                                    <span th:text="${Consulta.medico.especialidad}"></span>
+                                </li>
+                                <!-- li class="text-center"> <strong>Nombre:</strong> &nbsp;
+                                    <span th:text="${Consulta.paciente.nombre}"></span>
+                                </li -->
+                                <li class="text-center"> <strong>Fecha:</strong> &nbsp;
+                                    <span th:text="${Consulta.fecha}"></span>
+                                </li>
+                                <li class="text-center"> <strong>Hora:</strong> &nbsp;
+                                    <span th:text="${Consulta.hora}"></span>
+                                </li>
+                                <li class="text-center"> <strong>Observaciones:</strong> </br>
+                                    <span th:text="${Consulta.observaciones}"></span>
+                                </li> 
+                                <br>               
+                                <li class="text-center">
+                                    <button id="Llamada_paciente" class="btn btn-primary" onclick="">Llamar Paciente</button>
+                                    <input class="btn btn-primary btn-principal text-white" type="button" onclick="history.back()" 
+                                        name="Volver" value="Volver">
+                                    <button id="Cerrar_Consulta" class="btn btn-danger" onclick="">Cerrar Consulta</button>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

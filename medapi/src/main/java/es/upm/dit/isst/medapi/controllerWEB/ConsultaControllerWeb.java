@@ -1,6 +1,5 @@
-package es.upm.dit.isst.medapi.controller;
+package es.upm.dit.isst.medapi.controllerWEB;
 
-import java.security.*;
 import java.util.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.*;
 
 import es.upm.dit.isst.medapi.model.Consulta;
+import es.upm.dit.isst.medapi.model.Medico;
 
 @Controller
 @RequestMapping("/medcon")
@@ -28,13 +28,14 @@ public class ConsultaControllerWeb {
         return "redirect:/medcon/login";
     }
 
+    
     // Se invoca desde login.html .Solicita el parámetro "medico" que recibe del formulario con el method=POST,
     // pide una lista(consultasMedico) de las consultas filtradas por el "medico" recibido y lo manda a la vista agenda.html.
-    // La lista lo saca del @RESTController con ruta "/consultas/medico/{medico}".
+    // La lista lo saca del @RESTController con ruta "/consultas/medico/{usuario}".
     @RequestMapping("/agenda")
-    public String agendaMedicoLogin(Model model, @RequestParam("medico") String medico){
+    public String agendaMedicoLogin(Model model, @RequestParam("usuario") String usuario){
         List<Consulta> lista = new ArrayList<Consulta>();
-        lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + "medico/" + medico, Consulta[].class).getBody());
+        lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + "medico/" + usuario, Consulta[].class).getBody());
         model.addAttribute("consultasMedico", lista);
         return "agenda";
     }

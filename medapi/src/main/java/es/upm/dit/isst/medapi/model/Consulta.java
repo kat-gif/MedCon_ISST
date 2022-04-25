@@ -1,6 +1,8 @@
 package es.upm.dit.isst.medapi.model;
-import java.time.LocalTime;
 
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import javax.persistence.*;
 
 @Entity     
@@ -11,29 +13,66 @@ public class Consulta {
     @Column(unique = true, nullable = false)
     private Integer idconsulta;
 
-    private Integer DNI;
-    private String nombre;
-    private LocalTime cita;
+    // esta es la FK del atributo "usuario" de la tabla Medico
+    @JoinColumn
+    @ManyToOne 
+    private Medico medico;
+
+    // esta es la FK del atributo "nombre" de la tabla Paciente
+    @JoinColumn
+    @ManyToOne
+    private Paciente paciente;
+
+    private LocalTime hora;
+    private LocalDate fecha;
     private Integer sala_espera;
     private String sala_consulta;
-    private Boolean presencia;
-    private String medico;
-    public String pass;
     private Boolean atendido;
+    private Duration t_consulta;
+    private String observaciones;
+    private String id_espera;
+    private Boolean presencia;
 
     protected Consulta() {}
 
-    public Consulta(Integer dNI, String nombre, LocalTime cita, Integer sala_espera, String sala_consulta,
-            Boolean presencia, String medico, String pass, Boolean atendido) {
-        DNI = dNI;
-        this.nombre = nombre;
-        this.cita = cita;
+    public Consulta(Medico medico, Paciente paciente, LocalTime hora, LocalDate fecha,
+            Integer sala_espera, String sala_consulta, Boolean presencia, Duration t_consulta, String observaciones,
+            Boolean atendido) {
+
+        this.medico = medico;
+        this.paciente = paciente;
+        this.hora = hora;
+        this.fecha = fecha;
         this.sala_espera = sala_espera;
         this.sala_consulta = sala_consulta;
-        this.presencia = presencia;
-        this.medico = medico;
-        this.pass = pass;
         this.atendido = atendido;
+        this.t_consulta = t_consulta;
+        this.observaciones = observaciones;
+        this.presencia = presencia;
+    }
+
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+    
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+    public Boolean getPresencia() {
+        return presencia;
+    }
+
+    public void setPresencia(Boolean presencia) {
+        this.presencia = presencia;
     }
 
     public Integer getIdconsulta() {
@@ -44,28 +83,20 @@ public class Consulta {
         this.idconsulta = idconsulta;
     }
 
-    public Integer getDNI() {
-        return DNI;
+    public LocalTime getHora() {
+        return hora;
     }
 
-    public void setDNI(Integer dNI) {
-        DNI = dNI;
+    public void setHora(LocalTime hora) {
+        this.hora = hora;
     }
 
-    public String getNombre() {
-        return nombre;
+    public LocalDate getFecha() {
+        return fecha;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public LocalTime getCita() {
-        return cita;
-    }
-
-    public void setCita(LocalTime cita) {
-        this.cita = cita;
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
     public Integer getSala_espera() {
@@ -84,30 +115,6 @@ public class Consulta {
         this.sala_consulta = sala_consulta;
     }
 
-    public Boolean getPresencia() {
-        return presencia;
-    }
-
-    public void setPresencia(Boolean presencia) {
-        this.presencia = presencia;
-    }
-
-    public String getMedico() {
-        return medico;
-    }
-
-    public void setMedico(String medico) {
-        this.medico = medico;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-
     public Boolean getAtendido() {
         return atendido;
     }
@@ -116,13 +123,129 @@ public class Consulta {
         this.atendido = atendido;
     }
 
-    @Override
-    public String toString() {
-        return "Consulta [DNI=" + DNI + ", atendido=" + atendido + ", cita=" + cita + ", idconsulta=" + idconsulta
-                + ", medico=" + medico + ", nombre=" + nombre + ", presencia=" + presencia + ", sala_consulta="
-                + sala_consulta + ", sala_espera=" + sala_espera + "]";
+    public Duration getT_consulta() {
+        return t_consulta;
     }
 
+    public void setT_consulta(Duration t_consulta) {
+        this.t_consulta = t_consulta;
+    }
 
+    public String getObservaciones() {
+        return observaciones;
+    }
 
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
+    public String getId_espera() {
+        return id_espera;
+    }
+
+    public void setId_espera(String id_espera) {
+        this.id_espera = id_espera;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((atendido == null) ? 0 : atendido.hashCode());
+        result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
+        result = prime * result + ((hora == null) ? 0 : hora.hashCode());
+        result = prime * result + ((id_espera == null) ? 0 : id_espera.hashCode());
+        result = prime * result + ((idconsulta == null) ? 0 : idconsulta.hashCode());
+        result = prime * result + ((medico == null) ? 0 : medico.hashCode());
+        result = prime * result + ((observaciones == null) ? 0 : observaciones.hashCode());
+        result = prime * result + ((paciente == null) ? 0 : paciente.hashCode());
+        result = prime * result + ((presencia == null) ? 0 : presencia.hashCode());
+        result = prime * result + ((sala_consulta == null) ? 0 : sala_consulta.hashCode());
+        result = prime * result + ((sala_espera == null) ? 0 : sala_espera.hashCode());
+        result = prime * result + ((t_consulta == null) ? 0 : t_consulta.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Consulta other = (Consulta) obj;
+        if (atendido == null) {
+            if (other.atendido != null)
+                return false;
+        } else if (!atendido.equals(other.atendido))
+            return false;
+        if (fecha == null) {
+            if (other.fecha != null)
+                return false;
+        } else if (!fecha.equals(other.fecha))
+            return false;
+        if (hora == null) {
+            if (other.hora != null)
+                return false;
+        } else if (!hora.equals(other.hora))
+            return false;
+        if (id_espera == null) {
+            if (other.id_espera != null)
+                return false;
+        } else if (!id_espera.equals(other.id_espera))
+            return false;
+        if (idconsulta == null) {
+            if (other.idconsulta != null)
+                return false;
+        } else if (!idconsulta.equals(other.idconsulta))
+            return false;
+        if (medico == null) {
+            if (other.medico != null)
+                return false;
+        } else if (!medico.equals(other.medico))
+            return false;
+        if (observaciones == null) {
+            if (other.observaciones != null)
+                return false;
+        } else if (!observaciones.equals(other.observaciones))
+            return false;
+        if (paciente == null) {
+            if (other.paciente != null)
+                return false;
+        } else if (!paciente.equals(other.paciente))
+            return false;
+        if (presencia == null) {
+            if (other.presencia != null)
+                return false;
+        } else if (!presencia.equals(other.presencia))
+            return false;
+        if (sala_consulta == null) {
+            if (other.sala_consulta != null)
+                return false;
+        } else if (!sala_consulta.equals(other.sala_consulta))
+            return false;
+        if (sala_espera == null) {
+            if (other.sala_espera != null)
+                return false;
+        } else if (!sala_espera.equals(other.sala_espera))
+            return false;
+        if (t_consulta == null) {
+            if (other.t_consulta != null)
+                return false;
+        } else if (!t_consulta.equals(other.t_consulta))
+            return false;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Consulta [atendido=" + atendido + ", fecha=" + fecha + ", hora=" + hora + ", id_espera=" + id_espera
+                + ", idconsulta=" + idconsulta + ", medico=" + medico + ", observaciones=" + observaciones
+                + ", paciente=" + paciente + ", presencia=" + presencia + ", sala_consulta=" + sala_consulta
+                + ", sala_espera=" + sala_espera + ", t_consulta=" + t_consulta + "]";
+    }
+
+    
+    
 }

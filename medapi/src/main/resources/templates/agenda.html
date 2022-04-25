@@ -26,15 +26,15 @@
                 </button>
                 <div class="collapse navbar-collapse d-flex navbar-correccion" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle btn btn-primary btn-principal text-white" href="#" id="navbarDropdown"
-                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dr./Dra.
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" th:href="@{close}">Cerrar <br> Sesión</a></li>
-                        </ul>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle btn btn-primary btn-principal text-white" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dr./Dra. 
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" th:href="@{close}">Cerrar <br> Sesión</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -51,8 +51,9 @@
                     <thead>
                         <tr>
                             <th th:text="#{consultas.Consulta.presencia}" class="text-center"></th>
-                            <th th:text="#{consultas.Consulta.paciente}" class="text-center"></th>
                             <th th:text="#{consultas.Consulta.hora}" class="text-center"></th>
+                            <th th:text="#{consultas.Consulta.paciente}" class="text-center"></th>
+                            <th th:text="#{consultas.Consulta.observaciones}" class="text-center"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,15 +66,16 @@
                                     <span class="grey">·</span>
                                 </span>
                             </td>
+                            <td th:text="${Consulta.hora}"></td>
                             <td id="paciente">
                                 <span th:if="${Consulta.presencia == true}">
-                                    <a th:href="@{ficha/} + ${Consulta.nombre}" th:text="${Consulta.nombre}"></a>
+                                    <a th:href="@{ficha/} + ${Consulta.paciente.nombre}" th:text="${Consulta.paciente.nombre}"></a>
                                 </span>
                                 <span th:unless="${Consulta.presencia == true}">
-                                    <a th:text="${Consulta.nombre}"></a>
+                                    <a th:text="${Consulta.paciente.nombre}"></a>
                                 </span>
                             </td>
-                            <td th:text="${Consulta.cita}"></td>
+                            <td th:text="${Consulta.observaciones}"></td>
                         </tr>
                     </tbody>
                 </table>
