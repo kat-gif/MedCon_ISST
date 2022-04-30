@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.*;
 
 import es.upm.dit.isst.medapi.model.Consulta;
-import es.upm.dit.isst.medapi.model.Medico;
+//import es.upm.dit.isst.medapi.model.Medico;
 
 @Controller
 @RequestMapping("/medcon")
@@ -22,7 +22,8 @@ public class ConsultaControllerWeb {
         return "login";     
     }
 
-    // Se invoca desde agenda.html. Se redirecciona a la ruta "/login"
+    // Se invoca desde agenda.html. Se redirecciona a la ruta "medcon/login"
+    //en vez de añadir a la ruta en la que se encuentra un /close
     @GetMapping("/close")
     public String close(){
         return "redirect:/medcon/login";
@@ -48,8 +49,26 @@ public class ConsultaControllerWeb {
         lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + "paciente/" + nombre, Consulta[].class).getBody());
         model.addAttribute("consultasPaciente", lista);
         return "FichaPaciente";
+    } // Si el paciente tuviese dos consultas, esto saldría mal
+
+    // Se invoca desde FichaPaciente.html. Pide la consulta por su idconsulta y vuelve a seguir en FichaPaciente.html
+    // La Consulta lo saca del@RESTController con ruta "/consultas/atender/{id}".
+    @GetMapping("ficha/cerrarConsulta/{id}")
+    public String cerrarConsulta(Model model, @PathVariable(value ="id") Integer id){
+       Consulta consulta = restTemplate.getForEntity(CONSULTAMANAGER_STRING + "atender/" + id, Consulta.class).getBody();
+       model.addAttribute("consultasPaciente", consulta);
+       return "FichaPaciente";
     }
 
+    // Se invoca desde FichaPaciente.html. Vuelve a Agenda.html cogiendo el dato del {usuario}.
+    // La Consulta lo saca del@RESTController con ruta "/consultas/medico/{usuario}".
+    @GetMapping("/volver/agenda/{usuario}")
+    public String agendaMedicoVolver(Model model, @RequestParam("usuario") String usuario){
+        List<Consulta> lista = new ArrayList<Consulta>();
+        lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + "medico/" + usuario, Consulta[].class).getBody());
+        model.addAttribute("consultasMedico", lista);
+        return "agenda";
+    }
 
     // Se invoca desde FichaPaciente.html. Devuelve la vista historialClinico.html
     @GetMapping("ficha/historialClinico")
@@ -79,10 +98,5 @@ public class ConsultaControllerWeb {
     }
 
 
-    // @PostMapping("ficha/{nombre/cerrarConsulta}")
-    // public String cerrarConsulta(Model model, @PathVariable(value ="nombre") String nombre){
-    //     List<Consulta> lista = new ArrayList<Consulta>();
-    //     lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + "paciente/" + nombre, Consulta[].class).getBody());
-    //     model.addAttribute("consultasPaciente", lista);
-    // }
+
 }

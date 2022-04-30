@@ -33,7 +33,7 @@ public class Consulta {
     private String id_espera;
     private Boolean presencia;
 
-    protected Consulta() {}
+    public Consulta() {}
 
     public Consulta(Medico medico, Paciente paciente, LocalTime hora, LocalDate fecha,
             Integer sala_espera, String sala_consulta, Boolean presencia, Duration t_consulta, String observaciones,

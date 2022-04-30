@@ -24,11 +24,11 @@ public class MedicoController {
     return (List<Medico>) medicoRepository.findAll();
   }
   
-  //En la ruta "/medicos/usuario/{usuario}" vuelca una lista del contenido del modelo de datos Medico
+  /*//En la ruta "/medicos/usuario/{usuario}" vuelca una lista del contenido del modelo de datos Medico
   // filtrada por el {usuario} introducido en la ruta
   @GetMapping("/medicos/usuario/{usuario}")
   List<Medico> readByMedico(@PathVariable String usuario) {
     return (List<Medico>) medicoRepository.findByUsuario(usuario);
-  }
+  }*/
 
 }

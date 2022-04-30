@@ -1,4 +1,6 @@
 package es.upm.dit.isst.medapi.controllerREST;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -24,11 +26,13 @@ public class PacienteController {
     return (List<Paciente>) pacienteRepository.findAll();
   }
   
-  //En la ruta "/pacientes/nombre/{nombre}" vuelca una lista del contenido del modelo de datos Paciente
-  // filtrada por el {nombre} introducido en la ruta
+ /* //En la ruta "/pacientes/{nombre}" muestra el Paciente
+  // filtrado por el {nombre} introducido en la ruta
   @GetMapping("/pacientes/{nombre}")
-  List<Paciente> readByMedico(@PathVariable String nombre) {
-    return (List<Paciente>) pacienteRepository.findByNombre(nombre);
+  ResponseEntity<Paciente> readByPaciente(@PathVariable String nombre) {
+    return pacienteRepository.findById(nombre).map (paciente ->
+          ResponseEntity.ok().body(paciente)
+    ).orElse(new ResponseEntity<Paciente>(HttpStatus.NOT_FOUND));
   }
 
   //En la ruta "/pacientes/nombre/{nombre}" vuelca una lista del contenido del modelo de datos Paciente
@@ -37,5 +41,5 @@ public class PacienteController {
   Paciente readByDni(@PathVariable String dNI) {
     Integer dni = Integer.parseInt(dNI);
     return (Paciente) pacienteRepository.findByDNI(dni);
-  }
+  }*/
 }

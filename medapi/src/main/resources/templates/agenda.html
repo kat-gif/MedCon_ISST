@@ -58,24 +58,26 @@
                     </thead>
                     <tbody>
                         <tr th:each="Consulta: ${consultasMedico}">
-                            <td id="presencia">
-                                <span th:if="${Consulta.presencia == true}">
-                                    <span class="green">·</span>
-                                </span>
-                                <span th:unless="${Consulta.presencia == true}">
-                                    <span class="grey">·</span>
-                                </span>
-                            </td>
-                            <td th:text="${Consulta.hora}"></td>
-                            <td id="paciente">
-                                <span th:if="${Consulta.presencia == true}">
-                                    <a th:href="@{ficha/} + ${Consulta.paciente.nombre}" th:text="${Consulta.paciente.nombre}"></a>
-                                </span>
-                                <span th:unless="${Consulta.presencia == true}">
-                                    <a th:text="${Consulta.paciente.nombre}"></a>
-                                </span>
-                            </td>
-                            <td th:text="${Consulta.observaciones}"></td>
+                            <span th:if="${Consulta.atendido == false}">  
+                                <td id="presencia">
+                                    <span th:if="${Consulta.presencia == true}">
+                                        <span class="green">·</span>
+                                    </span>
+                                    <span th:unless="${Consulta.presencia == true}">
+                                        <span class="grey">·</span>
+                                    </span>
+                                </td>
+                                <td th:text="${Consulta.hora}"></td>
+                                <td id="paciente">
+                                    <span th:if="${Consulta.presencia == true}">
+                                        <a th:href="@{ficha/} + ${Consulta.paciente.nombre}" th:text="${Consulta.paciente.nombre}"></a>
+                                    </span>
+                                    <span th:unless="${Consulta.presencia == true}">
+                                        <a th:text="${Consulta.paciente.nombre}"></a>
+                                    </span>
+                                </td>
+                                <td th:text="${Consulta.observaciones}"></td>
+                           </span> 
                         </tr>
                     </tbody>
                 </table>
