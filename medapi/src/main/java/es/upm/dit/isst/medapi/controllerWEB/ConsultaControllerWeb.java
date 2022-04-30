@@ -30,8 +30,8 @@ public class ConsultaControllerWeb {
     }
 
     
-    // Se invoca desde login.html .Solicita el parámetro "medico" que recibe del formulario con el method=POST,
-    // pide una lista(consultasMedico) de las consultas filtradas por el "medico" recibido y lo manda a la vista agenda.html.
+    // Se invoca desde login.html .Solicita el parámetro "usuario" que recibe del formulario con el method=POST,
+    // pide una lista(consultasMedico) de las consultas filtradas por el "usuario" recibido y lo manda a la vista agenda.html.
     // La lista lo saca del @RESTController con ruta "/consultas/medico/{usuario}".
     @RequestMapping("/agenda")
     public String agendaMedicoLogin(Model model, @RequestParam("usuario") String usuario){

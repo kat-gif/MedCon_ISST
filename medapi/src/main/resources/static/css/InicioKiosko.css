@@ -1,0 +1,79 @@
+
+
+.bgcolor-principal {
+    background: #387e7d;
+}
+
+.btn-principal {
+    background-color: #387e7d !important;
+    border-color: #387e7d !important;
+}
+
+#texto2{
+    font-size: 30px;
+}
+
+footer{
+    background: #387e7d;
+    padding: 1em 0;
+    text-align: center;
+    margin-top: 2%;
+    color: #cacdd2;
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+    color: #cacdd2;
+}
+
+.dropdown{
+    margin-left: 950px;
+}
+
+#navbar{
+    height: 3em;
+}
+
+#title{
+  color:#387e7d ;
+  font-size:70px;
+}
+
+#dni{
+    height: 310px; 
+    width: 500px;
+}
+
+#tarjeta{
+    height: 310px; 
+    width: 500px;
+    margin-right: 500px;
+}
+
+.texto{
+    font-size:30px;
+}
+
+#cajonIzquierda{
+    background-color: #daefee;
+     color:#387e7d ;
+
+}
+
+
+#cajonDerecha{
+    background-color: #daefee;
+     color:#387e7d ;
+
+}
