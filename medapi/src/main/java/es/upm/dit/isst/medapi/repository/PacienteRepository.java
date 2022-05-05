@@ -9,4 +9,5 @@ public interface PacienteRepository extends CrudRepository<Paciente, String>{
     Paciente findByNombre(String nombre);
     //List<Paciente> findByDNI(Integer dNI);
     Paciente findByDNI(Integer dNI);
+    
 }

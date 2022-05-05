@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.*;
 
 import es.upm.dit.isst.medapi.model.Consulta;
-//import es.upm.dit.isst.medapi.model.Medico;
 
 @Controller
 @RequestMapping("/medcon")
@@ -49,10 +48,10 @@ public class ConsultaControllerWeb {
         lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + "paciente/" + nombre, Consulta[].class).getBody());
         model.addAttribute("consultasPaciente", lista);
         return "FichaPaciente";
-    } // Si el paciente tuviese dos consultas, esto saldría mal
+    } // Si el paciente tuviese dos consultas, esto saldría mal 
 
     // Se invoca desde FichaPaciente.html. Pide la consulta por su idconsulta y vuelve a seguir en FichaPaciente.html
-    // La Consulta lo saca del@RESTController con ruta "/consultas/atender/{id}".
+    // La Consulta lo saca del @RESTController con ruta "/consultas/atender/{id}".
     @GetMapping("ficha/cerrarConsulta/{id}")
     public String cerrarConsulta(Model model, @PathVariable(value ="id") Integer id){
        Consulta consulta = restTemplate.getForEntity(CONSULTAMANAGER_STRING + "atender/" + id, Consulta.class).getBody();
@@ -61,8 +60,8 @@ public class ConsultaControllerWeb {
     }
 
     // Se invoca desde FichaPaciente.html. Vuelve a Agenda.html cogiendo el dato del {usuario}.
-    // La Consulta lo saca del@RESTController con ruta "/consultas/medico/{usuario}".
-    @GetMapping("/volver/agenda/{usuario}")
+    // La Consulta lo saca del@RESTController con ruta "/consultas/medico".
+    @RequestMapping("/volver/agenda")
     public String agendaMedicoVolver(Model model, @RequestParam("usuario") String usuario){
         List<Consulta> lista = new ArrayList<Consulta>();
         lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + "medico/" + usuario, Consulta[].class).getBody());

@@ -69,9 +69,10 @@
                                 <li class="text-center">
                                    <form th:action="@{/medcon/agenda}" method="post">
                                         <button id="Llamada_paciente" class="btn btn-primary" onclick="">Llamar Paciente</button>                                    
-                                        <input id="usuario" type="hidden" name="usuario" th:value = "${Consulta.medico.usuario}" >
+                                        <input id="usuario" type="hidden" name="usuario" th:value = "${Consulta.medico.usuario}" > <!-- ESTO PARA QUÉ ES-->
                                         <input id="enter" class="btn btn-primary btn-principal text-white" type="submit" value="Volver">
-                                        <a th:if="${Consulta.atendido == false}"  id="Cerrar_Consulta" class="btn btn-danger" role="button" th:href="@{/medcon/ficha/cerrarConsulta/} + ${Consulta.idconsulta}">Cerrar Consulta</a>
+                                        <a th:if="${Consulta.atendido == false}"  id="Cerrar_Consulta" class="btn btn-danger" role="button" 
+                                        th:href="@{/medcon/ficha/cerrarConsulta/} + ${Consulta.idconsulta}">Cerrar Consulta</a>
                                     </form>
                                 </li>
                             </ul>
@@ -81,16 +82,16 @@
                 <div class="row justify-content-md-center">
                     <div class="col-md-8">
                         <section id="botonera">
-                            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{historialClinico}" role="button"> 
+                            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{/medcon/ficha/historialClinico}" role="button"> 
                                 Historial Clínico
                             </a>
-                            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{recetas}" role="button"> 
+                            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{/medcon/ficha/recetas}" role="button"> 
                                 Receta Electrónica
                             </a>
-                            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{pruebasDiagnosticas}" role="button">
+                            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{/medcon/ficha/pruebasDiagnosticas}" role="button">
                                  Pruebas Diagnósticas
                             </a>
-                            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{nuevaCita}" role="button">
+                            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{/medcon/ficha/nuevaCita}" role="button">
                                  Nueva Cita
                             </a>
                         </section>
