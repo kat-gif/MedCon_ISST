@@ -132,10 +132,11 @@
     justify-content: space-between;
     margin-bottom: 25px;
 }
+/* No hace nada? Se lo come la clase de Bootstrap
 h4{
     text-align: center;
     font-size: large;
-}
+}*/
 
 p{
     text-align: center;  
@@ -226,6 +227,11 @@ li{
     list-style: none;
     font-size:25px;
 }
+
+li.text-left{
+    margin-left: 29%;
+}
+
 
 #volver{
     margin-left: 15%;

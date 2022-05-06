@@ -62,3 +62,15 @@ footer{
     font-size: 14px;
     color: #cacdd2;
 }
+
+#back{
+    background-color: #0364f5 ;
+    color:white ;
+    border-color: black;
+    font-family: Arapey;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 2; 
+    text-align: center;
+    width: 20%;
+}

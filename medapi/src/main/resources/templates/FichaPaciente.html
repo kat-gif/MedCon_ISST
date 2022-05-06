@@ -44,40 +44,47 @@
             </section>
             <div class="row justify-content-md-center">    
                 <div class="col-md-8">
-                    <div class="card mb-4 rounded-3 shadow-sm">
-                            
+                   <!-- <div class="card mb-4 rounded-3 shadow-lg">-->
                             <ul th:each="Consulta: ${consultasPaciente}">
-                                <div class="card-header py-3 text-white btn-principal">
-                                    <h4 class="my-0 fw-normal text-center">
-                                        <span style="font-weight: bold;" th:text="${Consulta.paciente.nombre}"></span>
-                                    </h4>
+                                <div class="card mb-3 rounded-3 shadow-lg">
+                                    <div class="card-header py-3 text-white btn-principal">
+                                        <h4 class="my-0 fw-normal text-center">
+                                            <span style="font-weight: bold;" th:text="${Consulta.paciente.nombre}"></span>
+                                        </h4>
+                                    </div>
+                                    <li class="text-left"> <strong>Consulta:</strong>  &nbsp;
+                                        <span th:text="${Consulta.sala_consulta}"></span> &nbsp;
+                                        <span th:text="${Consulta.medico.especialidad}"></span>
+                                    </li>
+                                    <li class="text-left"> <strong>Fecha:</strong> &nbsp;
+                                        <span th:text="${Consulta.fecha}"></span>
+                                    </li>
+                                    <li class="text-left"> <strong>Hora:</strong> &nbsp;
+                                        <span th:text="${Consulta.hora}"></span>
+                                    </li>
+                                    <li class="text-left"> <strong>Observaciones:</strong> </br>
+                                        <span th:text="${Consulta.observaciones}"></span>
+                                    </li> 
+                                    <br>               
+                                    <li class="text-center">
+                                        <form th:action="@{/medcon/agenda}" method="post">
+
+                                                <button id="Llamada_paciente" class="btn btn-primary" onclick="">Llamar Paciente</button>
+
+                                            <!-- <a id="Llamada_paciente" class="btn btn-primary" role="button" 
+                                                th:href="@{/medcon/ficha/llamarPaciente/} + ${Consulta.idconsulta}">Llamar Paciente</a>-->
+                                                                                
+                                                <input id="usuario" type="hidden" name="usuario" th:value = "${Consulta.medico.usuario}" > <!-- ESTO PARA QUÉ ES-->
+                                                <input id="enter" class="btn btn-primary btn-principal text-white" type="submit" value="Volver">
+                                                <a th:if="${Consulta.atendido == false}" id="Cerrar_Consulta" class="btn btn-danger" role="button" 
+                                                th:href="@{/medcon/ficha/cerrarConsulta/} + ${Consulta.idconsulta}">Cerrar Consulta</a>
+                                        </form>
+                                    </li>
+                                    <br>
                                 </div>
-                                <li class="text-center"> <strong>Consulta:</strong>  &nbsp;
-                                    <span th:text="${Consulta.sala_consulta}"></span> &nbsp;
-                                    <span th:text="${Consulta.medico.especialidad}"></span>
-                                </li>
-                                <li class="text-center"> <strong>Fecha:</strong> &nbsp;
-                                    <span th:text="${Consulta.fecha}"></span>
-                                </li>
-                                <li class="text-center"> <strong>Hora:</strong> &nbsp;
-                                    <span th:text="${Consulta.hora}"></span>
-                                </li>
-                                <li class="text-center"> <strong>Observaciones:</strong> </br>
-                                    <span th:text="${Consulta.observaciones}"></span>
-                                </li> 
-                                <br>               
-                                <li class="text-center">
-                                   <form th:action="@{/medcon/agenda}" method="post">
-                                        <button id="Llamada_paciente" class="btn btn-primary" onclick="">Llamar Paciente</button>                                    
-                                        <input id="usuario" type="hidden" name="usuario" th:value = "${Consulta.medico.usuario}" > <!-- ESTO PARA QUÉ ES-->
-                                        <input id="enter" class="btn btn-primary btn-principal text-white" type="submit" value="Volver">
-                                        <a th:if="${Consulta.atendido == false}"  id="Cerrar_Consulta" class="btn btn-danger" role="button" 
-                                        th:href="@{/medcon/ficha/cerrarConsulta/} + ${Consulta.idconsulta}">Cerrar Consulta</a>
-                                    </form>
-                                </li>
                             </ul>
                         </div>
-                    </div>
+                    <!--</div>-->
                 </div>
                 <div class="row justify-content-md-center">
                     <div class="col-md-8">

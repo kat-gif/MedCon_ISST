@@ -141,7 +141,6 @@ public class Consulta {
 
     public String getId_espera() {
         return this.getSala_espera().toString() + this.getSala_consulta() + "-" + this.getIdconsulta().toString();
-        //return id;
     }
 
     public void setId_espera(String id_espera) {

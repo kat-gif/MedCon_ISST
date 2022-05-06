@@ -50,6 +50,15 @@ public class ConsultaControllerWeb {
         return "FichaPaciente";
     } // Si el paciente tuviese dos consultas, esto saldría mal 
 
+    
+    /*// Se invoca desde FichaPaciente.html. Pide la consulta por su idconsulta y la envia a salaPaciente.html
+    @GetMapping("ficha/llamarPaciente/{id}")
+    public String llamarPaciente(Model model, @PathVariable(value ="id") Integer id){
+       Consulta consulta = restTemplate.getForEntity(CONSULTAMANAGER_STRING + id, Consulta.class).getBody();
+       model.addAttribute("consultaPaciente", consulta);
+       return "FichaPaciente";
+    } */
+
     // Se invoca desde FichaPaciente.html. Pide la consulta por su idconsulta y vuelve a seguir en FichaPaciente.html
     // La Consulta lo saca del @RESTController con ruta "/consultas/atender/{id}".
     @GetMapping("ficha/cerrarConsulta/{id}")

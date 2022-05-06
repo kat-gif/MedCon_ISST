@@ -50,11 +50,13 @@
                 <span th:text="${consultaPorDNI.sala_consulta}"></span> &nbsp; 
                 <span th:text="${consultaPorDNI.medico.especialidad}"></span>
             </p>
-
+        </div>
+        <div>
+            <a id="back" class="nav-link btn  btn-principal text-white" role="button" th:href="@{/kiosco/inicio}">Volver</a>
         </div>
     </div>
 
-    <footer>
+   <footer>
         <div class="footer-content"  >
             <h3>MedCon</h3>
             <p>Términos y condiciones | Política de privacidad | Política de cookies | Aviso Legal </p>

@@ -61,7 +61,7 @@ public class ConsultaController {
   } // ESto habría que dividirlo en otro método para que saque la consulta del paciente DE ESE DIA
 
 
-  // En la ruta "/consultas/atender/{id}" muestra la consulta del paciente filtrado por el id de la ruta con el
+  // En la ruta "/consultas/{id}" muestra la consulta del paciente filtrado por el id de la ruta con el
   // atributo atendido == true
   @GetMapping("consultas/atender/{id}")
    Consulta atendido(@PathVariable Integer id){
