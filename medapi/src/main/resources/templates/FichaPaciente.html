@@ -7,7 +7,8 @@
         <link rel="stylesheet" type="text/css" href="/css/FichaPaciente.css">
         <link rel="icon" type="image/png" th:href="@{/img/medcon_icon.png}" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+              integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+              crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
                 crossorigin="anonymous">
@@ -15,26 +16,33 @@
     </head>
 
     <body>
-        <nav style="height: 3em;"class="navbar navbar-expand-lg navbar-light">
+        <nav style="height: 4em;"class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
+
                 <a class="navbar-brand" href="#">
                     <img id="logo" class="h-100 d-inline-block" th:src="@{../../../img/medcon.PNG}" />
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" 
+                aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse d-flex navbar-correccion" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle btn btn-primary btn-principal text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle btn btn-primary btn-principal text-white" href="#" 
+                            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Dr./Dra.
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" th:href="@{/medcon/close}">Cerrar <br> Sesión</a></li>
+                                <li><a class="dropdown-item" th:href="@{/medcon/close}">Cerrar<br>Sesión</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
+
             </div>
         </nav>
 
@@ -42,76 +50,93 @@
             <section id="llamadas">
                 <p >Tiempo Paciente: <time>00:00</time></p>
             </section>
+
             <div class="row justify-content-md-center">    
                 <div class="col-md-8">
-                   <!-- <div class="card mb-4 rounded-3 shadow-lg">-->
-                            <ul th:each="Consulta: ${consultasPaciente}">
-                                <div class="card mb-3 rounded-3 shadow-lg">
-                                    <div class="card-header py-3 text-white btn-principal">
-                                        <h4 class="my-0 fw-normal text-center">
-                                            <span style="font-weight: bold;" th:text="${Consulta.paciente.nombre}"></span>
-                                        </h4>
-                                    </div>
-                                    <li class="text-left"> <strong>Consulta:</strong>  &nbsp;
-                                        <span th:text="${Consulta.sala_consulta}"></span> &nbsp;
-                                        <span th:text="${Consulta.medico.especialidad}"></span>
-                                    </li>
-                                    <li class="text-left"> <strong>Fecha:</strong> &nbsp;
-                                        <span th:text="${Consulta.fecha}"></span>
-                                    </li>
-                                    <li class="text-left"> <strong>Hora:</strong> &nbsp;
-                                        <span th:text="${Consulta.hora}"></span>
-                                    </li>
-                                    <li class="text-left"> <strong>Observaciones:</strong> </br>
-                                        <span th:text="${Consulta.observaciones}"></span>
-                                    </li> 
-                                    <br>               
-                                    <li class="text-center">
-                                        <form th:action="@{/medcon/agenda}" method="post">
-
-                                                <button id="Llamada_paciente" class="btn btn-primary" onclick="">Llamar Paciente</button>
-
-                                            <!-- <a id="Llamada_paciente" class="btn btn-primary" role="button" 
-                                                th:href="@{/medcon/ficha/llamarPaciente/} + ${Consulta.idconsulta}">Llamar Paciente</a>-->
-                                                                                
-                                                <input id="usuario" type="hidden" name="usuario" th:value = "${Consulta.medico.usuario}" > <!-- ESTO PARA QUÉ ES-->
-                                                <input id="enter" class="btn btn-primary btn-principal text-white" type="submit" value="Volver">
-                                                <a th:if="${Consulta.atendido == false}" id="Cerrar_Consulta" class="btn btn-danger" role="button" 
-                                                th:href="@{/medcon/ficha/cerrarConsulta/} + ${Consulta.idconsulta}">Cerrar Consulta</a>
-                                        </form>
-                                    </li>
-                                    <br>
-                                </div>
-                            </ul>
+                    <ul th:each="Consulta: ${consultasPaciente}">
+                        <div class="card mb-3 rounded-3 shadow-lg">
+                            <div class="card-header py-3 text-white btn-principal">
+                                <h4 class="my-0 fw-normal text-center">
+                                    <span style="font-weight: bold;" th:text="${Consulta.paciente.nombre}"></span>
+                                </h4>
+                            </div>
+                            <li class="text-left"> <strong>Consulta:</strong>  &nbsp;
+                                <span th:text="${Consulta.sala_consulta}"></span> &nbsp;
+                                <span th:text="${Consulta.medico.especialidad}"></span>
+                            </li>
+                            <li class="text-left"> <strong>Fecha:</strong> &nbsp;
+                                <span th:text="${Consulta.fecha}"></span>
+                            </li>
+                            <li class="text-left"> <strong>Hora:</strong> &nbsp;
+                                <span th:text="${Consulta.hora}"></span>
+                            </li>
+                            <li class="text-left"> <strong>Observaciones:</strong> </br>
+                                <span th:text="${Consulta.observaciones}"></span>
+                            </li> 
+                            <br>               
+                            <li>
+                                <form th:action="@{/medcon/agenda}" method="post">
+                                    <ul id="botonesHoriz">
+                                        <li>
+                                            <input id="usuario" type="hidden" name="usuario" 
+                                                th:value = "${Consulta.medico.usuario}"> 
+                                        
+                                            <input th:if="${Consulta.llamado == false}" id="enter" class="btn btn-primary btn-principal text-white" 
+                                                type="submit" value="Volver">
+                                        </li>
+                                        <li>
+                                            <a th:if="${Consulta.llamado == false and Consulta.atendido == false}" id="Llamada_paciente" 
+                                                class="btn btn-primary" role="button"
+                                                th:href="@{/medcon/ficha/llamarPaciente/} + ${Consulta.idconsulta}">
+                                                Llamar Paciente
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:if="${Consulta.llamado == true and Consulta.atendido == false}" id="Cerrar_Consulta" 
+                                                class="btn btn-danger" role="button" 
+                                                th:href="@{/medcon/ficha/cerrarConsulta/} + ${Consulta.idconsulta}">
+                                                Cerrar Consulta
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </li>
+                            <br>
                         </div>
-                    <!--</div>-->
+                    </ul>
                 </div>
-                <div class="row justify-content-md-center">
-                    <div class="col-md-8">
-                        <section id="botonera">
-                            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{/medcon/ficha/historialClinico}" role="button"> 
-                                Historial Clínico
-                            </a>
-                            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{/medcon/ficha/recetas}" role="button"> 
-                                Receta Electrónica
-                            </a>
-                            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{/medcon/ficha/pruebasDiagnosticas}" role="button">
-                                 Pruebas Diagnósticas
-                            </a>
-                            <a class="nav-link btn btn-primary btn-principal text-white" th:href="@{/medcon/ficha/nuevaCita}" role="button">
-                                 Nueva Cita
-                            </a>
-                        </section>
-                    </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-md-8">
+                    <section id="botonera">
+                        <a class="nav-link btn btn-primary btn-principal text-white"
+                        th:href="@{/medcon/ficha/historialClinico}" role="button"> 
+                            Historial Clínico
+                        </a>
+                        <a class="nav-link btn btn-primary btn-principal text-white"
+                        th:href="@{/medcon/ficha/recetas}" role="button"> 
+                            Receta Electrónica
+                        </a>
+                        <a class="nav-link btn btn-primary btn-principal text-white" 
+                        th:href="@{/medcon/ficha/pruebasDiagnosticas}" role="button">
+                             Pruebas Diagnósticas
+                        </a>
+                        <a class="nav-link btn btn-primary btn-principal text-white" 
+                        th:href="@{/medcon/ficha/nuevaCita}" role="button">
+                            Nueva Cita
+                        </a>
+                    </section>
                 </div>
             </div>
         </div>
+
         <footer>
             <div class="footer-content">
                 <h3>MedCon</h3>
                 <p>Términos y condiciones | Política de privacidad | Política de cookies | Aviso Legal </p>
             </div>
         </footer>
+        
     </body>
 
 </html>

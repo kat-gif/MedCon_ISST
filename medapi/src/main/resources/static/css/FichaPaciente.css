@@ -128,6 +128,12 @@
   margin-top: 2%;
 }
 
+#botonesFicha{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
+  }
+
 #llamadas{
     justify-content: space-between;
     margin-bottom: 25px;
@@ -229,11 +235,22 @@ li{
 }
 
 li.text-left{
-    margin-left: 29%;
+    margin-left: 32%;
 }
 
 
 #volver{
     margin-left: 15%;
     margin-right: 15%;
+}
+
+#botonesHoriz{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+ul#botonesHoriz > li{
+    padding: 5px;
 }

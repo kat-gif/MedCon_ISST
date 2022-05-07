@@ -58,7 +58,6 @@ footer{
 #tarjeta{
     height: 310px; 
     width: 500px;
-    margin-right: 500px;
 }
 
 .texto{
@@ -68,6 +67,7 @@ footer{
 #cajonIzquierda{
     background-color: #daefee;
      color:#387e7d ;
+     width: 48%;
 
 }
 
@@ -75,5 +75,6 @@ footer{
 #cajonDerecha{
     background-color: #daefee;
      color:#387e7d ;
+     width: 48%;
 
 }

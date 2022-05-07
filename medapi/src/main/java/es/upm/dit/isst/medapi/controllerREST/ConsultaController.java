@@ -12,6 +12,10 @@ import es.upm.dit.isst.medapi.model.Paciente;
 import es.upm.dit.isst.medapi.repository.ConsultaRepository;
 import es.upm.dit.isst.medapi.repository.MedicoRepository;
 import es.upm.dit.isst.medapi.repository.PacienteRepository;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 public class ConsultaController {
@@ -67,10 +71,32 @@ public class ConsultaController {
    Consulta atendido(@PathVariable Integer id){
      Consulta consulta = consultaRepository.findByIdconsulta(id);
      consulta.setAtendido(true);
+     consulta.setLlamado(false);
      consultaRepository.save(consulta);
      return consulta;
    }
 
+  //En la ruta "/consultas/{id} se muestra una consulta filtrada por id"
+  @GetMapping("/consultas/llamarPaciente/{id}")
+  Consulta llamarPaciente(@PathVariable Integer id) {
+    Consulta consulta = consultaRepository.findByIdconsulta(id);
+    consulta.setLlamado(true);
+    consultaRepository.save(consulta);
+    return consulta;
+  }
+
+  @GetMapping("consultas/llamado")
+    List<Consulta> readLlamados() {
+    return (List<Consulta>) consultaRepository.findByLlamado();
+  }
    
- 
+  //  @GetMapping("/consultas/llamarPaciente/{id}")
+  // ResponseEntity<Consulta> readLlamado(@PathVariable Integer id) {
+  //   return consultaRepository.findById(id).map(consulta -> {
+  //     consulta.setLlamado(true);
+  //     consultaRepository.save(consulta);
+  //     return ResponseEntity.ok().body(consulta);
+  //   }).orElse(new ResponseEntity<Consulta>(HttpStatus.NOT_FOUND));
+
+  // }
 }

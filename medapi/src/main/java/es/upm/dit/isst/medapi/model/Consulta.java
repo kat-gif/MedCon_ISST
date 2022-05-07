@@ -32,6 +32,7 @@ public class Consulta {
     private String observaciones;
     private String id_espera;
     private Boolean presencia;
+    private Boolean llamado = false;    //esto tiene todo puesto. incluso se ha rellenado en la tabla
 
     public Consulta() {}
 
@@ -147,6 +148,14 @@ public class Consulta {
         this.id_espera = id_espera;
     }
 
+    public Boolean getLlamado() {
+        return llamado;
+    }
+
+    public void setLlamado(Boolean llamado) {
+        this.llamado = llamado;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -156,6 +165,7 @@ public class Consulta {
         result = prime * result + ((hora == null) ? 0 : hora.hashCode());
         result = prime * result + ((id_espera == null) ? 0 : id_espera.hashCode());
         result = prime * result + ((idconsulta == null) ? 0 : idconsulta.hashCode());
+        result = prime * result + ((llamado == null) ? 0 : llamado.hashCode());
         result = prime * result + ((medico == null) ? 0 : medico.hashCode());
         result = prime * result + ((observaciones == null) ? 0 : observaciones.hashCode());
         result = prime * result + ((paciente == null) ? 0 : paciente.hashCode());
@@ -200,6 +210,11 @@ public class Consulta {
                 return false;
         } else if (!idconsulta.equals(other.idconsulta))
             return false;
+        if (llamado == null) {
+            if (other.llamado != null)
+                return false;
+        } else if (!llamado.equals(other.llamado))
+            return false;
         if (medico == null) {
             if (other.medico != null)
                 return false;
@@ -241,9 +256,9 @@ public class Consulta {
     @Override
     public String toString() {
         return "Consulta [atendido=" + atendido + ", fecha=" + fecha + ", hora=" + hora + ", id_espera=" + id_espera
-                + ", idconsulta=" + idconsulta + ", medico=" + medico + ", observaciones=" + observaciones
-                + ", paciente=" + paciente + ", presencia=" + presencia + ", sala_consulta=" + sala_consulta
-                + ", sala_espera=" + sala_espera + ", t_consulta=" + t_consulta + "]";
+                + ", idconsulta=" + idconsulta + ", llamado=" + llamado + ", medico=" + medico + ", observaciones="
+                + observaciones + ", paciente=" + paciente + ", presencia=" + presencia + ", sala_consulta="
+                + sala_consulta + ", sala_espera=" + sala_espera + ", t_consulta=" + t_consulta + "]";
     }
 
     

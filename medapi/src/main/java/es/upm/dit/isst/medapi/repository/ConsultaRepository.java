@@ -1,6 +1,6 @@
 package es.upm.dit.isst.medapi.repository;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import es.upm.dit.isst.medapi.model.Consulta;
@@ -22,5 +22,16 @@ public interface ConsultaRepository extends CrudRepository<Consulta, Integer>{
             }
         }
         return consulta;
+    }
+
+    public default List<Consulta> findByLlamado(){
+        List<Consulta> consultas = (List<Consulta>) findAll();
+        List<Consulta> consultasLlamadas = new ArrayList<>();
+        for(int j=0; j<consultas.size(); j++){
+            if(consultas.get(j).getLlamado() == true){
+                consultasLlamadas.add(consultas.get(j));
+            }
+        }
+        return consultasLlamadas;
     }
 } 

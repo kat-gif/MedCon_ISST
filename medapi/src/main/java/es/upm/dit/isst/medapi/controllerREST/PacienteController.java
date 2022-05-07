@@ -1,9 +1,6 @@
 package es.upm.dit.isst.medapi.controllerREST;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.*;
 
 import org.slf4j.*;
