@@ -13,7 +13,7 @@ import es.upm.dit.isst.medapi.model.Consulta;
 
 public class PantallaEsperaControllerWeb {
     
-    public final String MANAGER_STRING= "http://localhost:8080/";
+    public final String CONSULTAMANAGER_STRING= "http://localhost:8080/consultas/";
     private RestTemplate restTemplate = new RestTemplate();
     
     // Devuelve la vista INICIO.html. NO está relacionado con la Pantalla de espera
@@ -26,7 +26,7 @@ public class PantallaEsperaControllerWeb {
     @GetMapping("/pantalla")
     public String pantalla(Model model) {
         List<Consulta> lista = new ArrayList<Consulta>();
-		lista = Arrays.asList(restTemplate.getForEntity(MANAGER_STRING + "consultas/llamado", Consulta[].class).getBody());
+		lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + "llamado", Consulta[].class).getBody());
         model.addAttribute("consultas", lista);
         return "salaEspera";     
     }

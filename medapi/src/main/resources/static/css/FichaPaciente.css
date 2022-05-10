@@ -1,11 +1,11 @@
 /* Para la parte de la pantalla de la ficha del paciente*/
 
-#foto{
+/*#foto{
     width: 99px;
     height: 62px;
-}
+}*/
 
-#Llamada_paciente_old{
+/*#Llamada_paciente_old{
     width: 173px;
     height: 39px;
     padding: 0px 10px 0px 10px;
@@ -19,9 +19,9 @@
     font-weight: bold;
     font-size: 18px;
     text-align: center;
-}
+}*/
 
-#Cerrar_Consulta_old{
+/*#Cerrar_Consulta_old{
         width: 173px;
         height: 39px;
         color: #000000;
@@ -31,9 +31,9 @@
         font-size: 18px;
         line-height: 1.3;
         text-align: center;
-}
+}*/
 
-#Regreso_Vista{
+/*#Regreso_Vista{
     width: 90px;
     height: 41px;
     background: #98e6e2;
@@ -46,9 +46,9 @@
     font-size: 24px;
     text-align: center;
 
-}
+}*/
 
-#Historial{
+/*#Historial{
     width: 222px;
     height: 90px;
     background: #3da8a2;
@@ -62,9 +62,9 @@
     line-height: 1.3;
     text-align: center;
     margin-left: 15px;
-}
+}*/
 
-#Recetas{
+/*#Recetas{
     width: 200px;
     height: 90px;
     background: #3da8a2;
@@ -77,9 +77,9 @@
     font-size: 24px;
     text-align: center;
 
-}
+}*/
 
-#Pruebas{
+/*#Pruebas{
     width: 222px;
     height: 90px;
     background: #3da8a2;
@@ -92,9 +92,9 @@
     font-size: 24px;
     line-height: 1.3;
     text-align: center;
-}
+}*/
 
-#Nueva_Cita{
+/*#Nueva_Cita{
     width: 222px;
     height: 90px;
     background: #3da8a2;
@@ -109,7 +109,7 @@
     text-align: center;
     margin-right: 10px;
 
-}
+}*/
 
 #Llamada_paciente{
     margin-left: 15px;
@@ -118,9 +118,9 @@
 #Cerrar_Consulta{
     margin-right: 15px;
 }
-#Regreso_Vista{
+/*#Regreso_Vista{
     margin-left: 15px;
-}
+}*/
 
 #botonera{
   display: flex;
@@ -128,17 +128,17 @@
   margin-top: 2%;
 }
 
-#botonesFicha{
+/*#botonesFicha{
     display: flex;
     justify-content: space-between;
     margin-top: 2%;
-  }
+  }*/
 
-#llamadas{
+/*#llamadas{
     justify-content: space-between;
     margin-bottom: 25px;
-}
-/* No hace nada? Se lo come la clase de Bootstrap
+}*/
+/*
 h4{
     text-align: center;
     font-size: large;
@@ -149,14 +149,14 @@ p{
 }
 
 
-.navbar-correccion{
+/*.navbar-correccion{
     flex-grow: 0 !important;
-}
+}*/
 
 
-.bgcolor-principal {
+/*.bgcolor-principal {
     background: #387e7d;
-}
+}*/
 
 .btn-principal {
     background-color: #387e7d !important;
@@ -190,7 +190,7 @@ footer{
     font-size: 14px;
     color: #cacdd2;
 }
-table#pacientes{
+/* table#pacientes{
     padding: 40px;
     margin: 0 auto;
     border-collapse: collapse;
@@ -227,7 +227,7 @@ td#presencia{
 table tr td{
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
-}
+} */
 
 li{
     list-style: none;
@@ -239,10 +239,10 @@ li.text-left{
 }
 
 
-#volver{
+/*#volver{
     margin-left: 15%;
     margin-right: 15%;
-}
+}*/
 
 #botonesHoriz{
     display: flex;
@@ -253,4 +253,54 @@ li.text-left{
 
 ul#botonesHoriz > li{
     padding: 5px;
+}
+
+/* CSS del cronómetro*/
+#contenedor{
+    width: 60%;
+    display: flex;
+	margin:auto;
+	height: 70px;
+}
+.reloj{
+	float: left;
+	font-size: 40px;
+	font-family: Courier,sans-serif;
+	color: #363431;
+}
+.boton{
+	outline: none;
+	border: 1px solid #363431;
+	color: white;
+	width: 128px;
+	height: 30px;
+	text-shadow: 0px -1px 1px black;
+	font-size: 20px;
+	border-radius: 5px;
+	font-family: Helvetica;
+	cursor: pointer;
+	background-image: linear-gradient(#3aad02,#2c6f05);
+}
+.boton:active{
+	background-image: linear-gradient(#2c6f05,#3aad02);
+}
+.boton:hover{
+	box-shadow: 0px 0px 14px #3aad02;
+}
+
+/* para la flecha*/
+#Volver {
+    font-size: 30px;
+    justify-content: left; 
+    display: flex; 
+    color: #387e7d;
+}
+
+.row-flecha {
+    display: flex;
+    
+}
+
+.column-nombre{
+    width:100%
 }

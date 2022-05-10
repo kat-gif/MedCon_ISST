@@ -28,7 +28,6 @@ public class Consulta {
     private Integer sala_espera;
     private String sala_consulta;
     private Boolean atendido;
-    private Duration t_consulta;
     private String observaciones;
     private String id_espera;
     private Boolean presencia;
@@ -37,7 +36,7 @@ public class Consulta {
     public Consulta() {}
 
     public Consulta(Medico medico, Paciente paciente, LocalTime hora, LocalDate fecha,
-            Integer sala_espera, String sala_consulta, Boolean presencia, Duration t_consulta, String observaciones,
+            Integer sala_espera, String sala_consulta, Boolean presencia, String observaciones,
             Boolean atendido) {
 
         this.medico = medico;
@@ -47,7 +46,6 @@ public class Consulta {
         this.sala_espera = sala_espera;
         this.sala_consulta = sala_consulta;
         this.atendido = atendido;
-        this.t_consulta = t_consulta;
         this.observaciones = observaciones;
         this.presencia = presencia;
     }
@@ -124,14 +122,6 @@ public class Consulta {
         this.atendido = atendido;
     }
 
-    public Duration getT_consulta() {
-        return t_consulta;
-    }
-
-    public void setT_consulta(Duration t_consulta) {
-        this.t_consulta = t_consulta;
-    }
-
     public String getObservaciones() {
         return observaciones;
     }
@@ -172,7 +162,6 @@ public class Consulta {
         result = prime * result + ((presencia == null) ? 0 : presencia.hashCode());
         result = prime * result + ((sala_consulta == null) ? 0 : sala_consulta.hashCode());
         result = prime * result + ((sala_espera == null) ? 0 : sala_espera.hashCode());
-        result = prime * result + ((t_consulta == null) ? 0 : t_consulta.hashCode());
         return result;
     }
 
@@ -245,11 +234,6 @@ public class Consulta {
                 return false;
         } else if (!sala_espera.equals(other.sala_espera))
             return false;
-        if (t_consulta == null) {
-            if (other.t_consulta != null)
-                return false;
-        } else if (!t_consulta.equals(other.t_consulta))
-            return false;
         return true;
     }
 
@@ -258,7 +242,7 @@ public class Consulta {
         return "Consulta [atendido=" + atendido + ", fecha=" + fecha + ", hora=" + hora + ", id_espera=" + id_espera
                 + ", idconsulta=" + idconsulta + ", llamado=" + llamado + ", medico=" + medico + ", observaciones="
                 + observaciones + ", paciente=" + paciente + ", presencia=" + presencia + ", sala_consulta="
-                + sala_consulta + ", sala_espera=" + sala_espera + ", t_consulta=" + t_consulta + "]";
+                + sala_consulta + ", sala_espera=" + sala_espera + "]";
     }
 
     

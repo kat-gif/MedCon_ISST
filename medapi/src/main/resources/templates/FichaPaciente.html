@@ -13,6 +13,56 @@
                 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
                 crossorigin="anonymous">
         </script>
+        <script>
+            var centesimas = 0;
+            var segundos = 0;
+            var minutos = 0;
+            var horas = 0;
+
+            function inicio () {
+                control = setInterval(cronometro,10);
+                document.getElementById("Cerrar_Consulta").disabled = false;
+                document.getElementById("Llamada_paciente").disabled = true;
+            }
+
+            function parar () {
+                clearInterval(control);
+                document.getElementById("volver").disabled = false;
+                document.getElementById("Cerrar_Consulta").disabled = true;
+            }
+
+            function cronometro () {
+                if (centesimas < 99) {
+                    centesimas++;
+                    if (centesimas < 10) { centesimas = "0"+centesimas }
+                    
+                }
+                if (centesimas == 99) {
+                    centesimas = -1;
+                }
+                if (centesimas == 0) {
+                    segundos ++;
+                    if (segundos < 10) { segundos = "0"+segundos }
+                    Segundos.innerHTML = ":"+segundos;
+                }
+                if (segundos == 59) {
+                    segundos = -1;
+                }
+                if ( (centesimas == 0)&&(segundos == 0) ) {
+                    minutos++;
+                    if (minutos < 10) { minutos = "0"+minutos }
+                    Minutos.innerHTML = minutos;
+                }
+                if (minutos == 59) {
+                    minutos = -1;
+                }
+                if ( (centesimas == 0)&&(segundos == 0)&&(minutos == 0) ) {
+                    horas ++;
+                    if (horas < 10) { horas = "0"+horas }
+                    Horas.innerHTML = horas;
+                }
+            }
+        </script>
     </head>
 
     <body>
@@ -29,37 +79,32 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse d-flex navbar-correccion" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle btn btn-primary btn-principal text-white" href="#" 
-                            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dr./Dra.
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" th:href="@{/medcon/close}">Cerrar<br>Sesión</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
             </div>
         </nav>
 
         <div id="ficha">
-            <section id="llamadas">
-                <p >Tiempo Paciente: <time>00:00</time></p>
-            </section>
+            
+
+            <div id="contenedor">
+
+                <div class="reloj" id="Minutos">00</div>
+                <div class="reloj" id="Segundos">:00</div>
+
+            </div>
 
             <div class="row justify-content-md-center">    
                 <div class="col-md-8">
                     <ul th:each="Consulta: ${consultasPaciente}">
                         <div class="card mb-3 rounded-3 shadow-lg">
-                            <div class="card-header py-3 text-white btn-principal">
-                                <h4 class="my-0 fw-normal text-center">
+                            <div class="row-flecha card-header py-3 text-white btn-principal">
+                                <input class="column" th:if="${Consulta.llamado == false}" type="button" 
+                                    onclick="history.back()" id="Volver" value="🢀">
+                                <h4 class=" column-nombre my-0 fs-2 text-center">
                                     <span style="font-weight: bold;" th:text="${Consulta.paciente.nombre}"></span>
                                 </h4>
+
                             </div>
+                            
                             <li class="text-left"> <strong>Consulta:</strong>  &nbsp;
                                 <span th:text="${Consulta.sala_consulta}"></span> &nbsp;
                                 <span th:text="${Consulta.medico.especialidad}"></span>
@@ -75,31 +120,46 @@
                             </li> 
                             <br>               
                             <li>
-                                <form th:action="@{/medcon/agenda}" method="post">
                                     <ul id="botonesHoriz">
                                         <li>
-                                            <input id="usuario" type="hidden" name="usuario" 
-                                                th:value = "${Consulta.medico.usuario}"> 
-                                        
-                                            <input th:if="${Consulta.llamado == false}" id="enter" class="btn btn-primary btn-principal text-white" 
-                                                type="submit" value="Volver">
+                                            <form th:action="@{/medcon/ficha/} + ${Consulta.paciente.nombre}" method="post">
+
+                                                <input id="id" type="hidden" name="id" 
+                                                    th:value = "${Consulta.idconsulta}"> 
+                                                <span th:if="${Consulta.llamado == false}">
+                                                    <input id="Llamada_paciente" class="btn btn-primary" 
+                                                    type="submit" value="Llamar Paciente">
+                                                </span>
+                                            </form>
+                                            <span th:if="${Consulta.llamado == true}">
+                                                <script>inicio();</script>
+                                                <input id="Llamada_paciente" class="btn btn-primary" 
+                                                    type="submit" value="Llamar Paciente" disabled>
+                                            </span>
                                         </li>
                                         <li>
-                                            <a th:if="${Consulta.llamado == false and Consulta.atendido == false}" id="Llamada_paciente" 
-                                                class="btn btn-primary" role="button"
-                                                th:href="@{/medcon/ficha/llamarPaciente/} + ${Consulta.idconsulta}">
-                                                Llamar Paciente
-                                            </a>
+                                            <form th:action="@{/medcon/volver/agenda}" method="post">
+
+                                                <input id="id" type="hidden" name="id" 
+                                                    th:value = "${Consulta.idconsulta}">
+
+                                                <input id="usuario" type="hidden" name="usuario" 
+                                                    th:value = "${Consulta.medico.usuario}"> 
+                                            
+                                                <input id="volver" class="btn btn-primary btn-principal text-white" 
+                                                    type="submit" value="Agenda" disabled>
+                                            
+                                            </form>
                                         </li>
                                         <li>
-                                            <a th:if="${Consulta.llamado == true and Consulta.atendido == false}" id="Cerrar_Consulta" 
-                                                class="btn btn-danger" role="button" 
-                                                th:href="@{/medcon/ficha/cerrarConsulta/} + ${Consulta.idconsulta}">
-                                                Cerrar Consulta
-                                            </a>
+                                            <input th:if="${Consulta.llamado == false}" id="Cerrar_Consulta" class="btn btn-danger" 
+                                                onclick="parar();" value="Cerrar Consulta" disabled>
+                                            <input th:unless="${Consulta.llamado == false}"
+                                                id="Cerrar_Consulta" class="btn btn-danger" onclick="parar();"
+                                                value="Cerrar Consulta">
+
                                         </li>
                                     </ul>
-                                </form>
                             </li>
                             <br>
                         </div>

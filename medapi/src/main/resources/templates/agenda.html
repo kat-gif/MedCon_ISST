@@ -78,7 +78,7 @@
                                 <td th:text="${Consulta.hora}"></td>
                                 <td id="paciente">
                                     <span th:if="${Consulta.presencia == true}">
-                                        <a th:href="@{ficha/} + ${Consulta.paciente.nombre}" 
+                                        <a th:href="@{/medcon/ficha/} + ${Consulta.paciente.nombre}" 
                                         th:text="${Consulta.paciente.nombre}">
                                         </a>
                                     </span>

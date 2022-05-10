@@ -64,19 +64,8 @@ public class ConsultaController {
     return (List<Consulta>) consultaRepository.findByPaciente(paciente);
   } // ESto habría que dividirlo en otro método para que saque la consulta del paciente DE ESE DIA
 
-
-  // En la ruta "/consultas/{id}" muestra la consulta del paciente filtrado por el id de la ruta con el
-  // atributo atendido == true
-  @GetMapping("consultas/atender/{id}")
-   Consulta atendido(@PathVariable Integer id){
-     Consulta consulta = consultaRepository.findByIdconsulta(id);
-     consulta.setAtendido(true);
-     consulta.setLlamado(false);
-     consultaRepository.save(consulta);
-     return consulta;
-   }
-
-  //En la ruta "/consultas/{id} se muestra una consulta filtrada por id"
+  //En la ruta "/consultas/llamarPaciente/{id} modifica el atributo llamado a true cuando el médico llama al paciente a consulta
+  //y devuelve la consulta modificada
   @GetMapping("/consultas/llamarPaciente/{id}")
   Consulta llamarPaciente(@PathVariable Integer id) {
     Consulta consulta = consultaRepository.findByIdconsulta(id);
@@ -85,18 +74,22 @@ public class ConsultaController {
     return consulta;
   }
 
+  //En la ruta "consultas/llamado" devuelve una lista de consultas filtrada por los pacientes que han sido llamados"
   @GetMapping("consultas/llamado")
     List<Consulta> readLlamados() {
     return (List<Consulta>) consultaRepository.findByLlamado();
   }
-   
-  //  @GetMapping("/consultas/llamarPaciente/{id}")
-  // ResponseEntity<Consulta> readLlamado(@PathVariable Integer id) {
-  //   return consultaRepository.findById(id).map(consulta -> {
-  //     consulta.setLlamado(true);
-  //     consultaRepository.save(consulta);
-  //     return ResponseEntity.ok().body(consulta);
-  //   }).orElse(new ResponseEntity<Consulta>(HttpStatus.NOT_FOUND));
 
-  // }
+  //En la ruta "consultas/{id}/volver/medico/{usuario}" devuelve la lista de consultas filtrada por el usuario del médico
+  //y cambia la variable de atendido a true en los pacientes que han sido atendidos (lo que provocará que desaparezca la fila en la vista agenda)
+  @GetMapping("/consultas/{id}/volver/medico/{usuario}")
+  List<Consulta> volverAgenda(@PathVariable String usuario, @PathVariable Integer id) {
+    Medico medico = (Medico) medicoRepository.findByUsuario(usuario);
+    List <Consulta> consultas = consultaRepository.findByMedico(medico);
+    Consulta consulta = consultaRepository.findByIdconsulta(id);
+    consulta.setAtendido(true);
+    consulta.setLlamado(false);
+    consultaRepository.save(consulta);
+    return consultas;
+  }
 }

@@ -49,38 +49,21 @@ public class ConsultaControllerWeb {
         model.addAttribute("consultasPaciente", lista);
         return "FichaPaciente";
     } // Si el paciente tuviese dos consultas, esto saldría mal 
-
-      /*  // Se invoca desde FichaPaciente.html. Pide la consulta por su idconsulta y la envia a salaPaciente.html
-        @GetMapping("ficha/llamarPaciente/{id}")
-        public String llamarPaciente(Model model, @PathVariable(value ="id") Integer id){
-           Consulta consulta = restTemplate.getForEntity(CONSULTAMANAGER_STRING + "/llamarPaciente" + id, Consulta.class).getBody();
-           model.addAttribute("consultaLlamar", consulta);
-           return "FichaPaciente";
-        } */
     
     // Se invoca desde FichaPaciente.html. Lamma al controller /llamado
-    @GetMapping("ficha/llamarPaciente/{id}")
-    public String llamarPaciente(Model model, @PathVariable(value ="id") Integer id){
+    @RequestMapping("ficha/{nombre}")
+    public String llamarPaciente(Model model, @RequestParam("id") Integer id){
        Consulta consulta = restTemplate.getForEntity(CONSULTAMANAGER_STRING + "llamarPaciente/" + id, Consulta.class).getBody();
-       model.addAttribute("consultasPaciente", consulta); // lista de consultas que han sido llamadas? SI
+       model.addAttribute("consultasPaciente", consulta); 
        return "FichaPaciente";
     } 
 
-    // Se invoca desde FichaPaciente.html. Pide la consulta por su idconsulta y vuelve a seguir en FichaPaciente.html
-    // La Consulta lo saca del @RESTController con ruta "/consultas/atender/{id}".
-    @GetMapping("ficha/cerrarConsulta/{id}")
-    public String cerrarConsulta(Model model, @PathVariable(value ="id") Integer id){
-       Consulta consulta = restTemplate.getForEntity(CONSULTAMANAGER_STRING + "atender/" + id, Consulta.class).getBody();
-       model.addAttribute("consultasPaciente", consulta);
-       return "FichaPaciente";
-    }
-
-    // Se invoca desde FichaPaciente.html. Vuelve a Agenda.html cogiendo el dato del {usuario}.
-    // La Consulta lo saca del@RESTController con ruta "/consultas/medico".
+    // // Se invoca desde FichaPaciente.html. Vuelve a Agenda.html cogiendo el dato del {usuario}.
+    // // La Consulta lo saca del@RESTController con ruta "/consultas/medico".
     @RequestMapping("/volver/agenda")
-    public String agendaMedicoVolver(Model model, @RequestParam("usuario") String usuario){
+    public String agendaMedicoVolver(Model model, @RequestParam("usuario") String usuario, @RequestParam("id") Integer id){
         List<Consulta> lista = new ArrayList<Consulta>();
-        lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + "medico/" + usuario, Consulta[].class).getBody());
+        lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + id + "/volver/medico/" + usuario, Consulta[].class).getBody());
         model.addAttribute("consultasMedico", lista);
         return "agenda";
     }

@@ -59,18 +59,18 @@ public class MedapiApplication {
 			Mrepository.save(medico3);
 
 
-			Crepository.save(new Consulta(medico1, paciente1, LocalTime.of(9,00,00), LocalDate.of(2022, 04, 24), 1, "A",false, Duration.ofMinutes(10),"Primera consulta",false));
-			Crepository.save(new Consulta(medico1, paciente2, LocalTime.of(9,10,00), LocalDate.of(2022, 04, 24), 1, "A",false, Duration.ofMinutes(10),"Revisión",false));
-			Crepository.save(new Consulta(medico1, paciente3, LocalTime.of(9,15,00), LocalDate.of(2022, 04, 24), 1, "A",false, Duration.ofMinutes(10),"Pauta completa",false));
-			Crepository.save(new Consulta(medico1, paciente4, LocalTime.of(9,25,00), LocalDate.of(2022, 04, 24), 1, "A",false, Duration.ofMinutes(10),"Revisión",false));
-			Crepository.save(new Consulta(medico1, paciente5, LocalTime.of(9,35,00), LocalDate.of(2022, 04, 24), 1, "A",false, Duration.ofMinutes(10),"Revisión",false));
-			Crepository.save(new Consulta(medico1, paciente6, LocalTime.of(9,45,00), LocalDate.of(2022, 04, 24), 1, "A",false, Duration.ofMinutes(10),"Pauta completa",false));
-			Crepository.save(new Consulta(medico1, paciente7, LocalTime.of(9,55,00), LocalDate.of(2022, 04, 24), 1, "A",false, Duration.ofMinutes(10),"Revisión",false));
-			Crepository.save(new Consulta(medico1, paciente8, LocalTime.of(10,05,00), LocalDate.of(2022, 04, 24), 1, "A",false, Duration.ofMinutes(10),"Revisión",false));
-			Crepository.save(new Consulta(medico2, paciente9, LocalTime.of(10,00,00), LocalDate.of(2022, 04, 24), 2, "B",false, Duration.ofMinutes(10)," Pauta completa", false));
-			Crepository.save(new Consulta(medico2, paciente10, LocalTime.of(10,10,00), LocalDate.of(2022, 04, 24), 2, "B",false, Duration.ofMinutes(10)," Ha pasado el covid", false));
-			Crepository.save(new Consulta(medico2, paciente11, LocalTime.of(10,20,00), LocalDate.of(2022, 04, 24), 2, "B",false, Duration.ofMinutes(10)," Ha pasado el covid", false));
-			Crepository.save(new Consulta(medico2, paciente12, LocalTime.of(10,30,00), LocalDate.of(2022, 04, 24), 2, "B",false, Duration.ofMinutes(10)," Ha pasado el covid", false));
+			Crepository.save(new Consulta(medico1, paciente1, LocalTime.of(9,00,00), LocalDate.of(2022, 04, 24), 1, "A",false, "Primera consulta",false));
+			Crepository.save(new Consulta(medico1, paciente2, LocalTime.of(9,10,00), LocalDate.of(2022, 04, 24), 1, "A",false, "Revisión",false));
+			Crepository.save(new Consulta(medico1, paciente3, LocalTime.of(9,15,00), LocalDate.of(2022, 04, 24), 1, "A",false, "Pauta completa",false));
+			Crepository.save(new Consulta(medico1, paciente4, LocalTime.of(9,25,00), LocalDate.of(2022, 04, 24), 1, "A",false, "Revisión",false));
+			Crepository.save(new Consulta(medico1, paciente5, LocalTime.of(9,35,00), LocalDate.of(2022, 04, 24), 1, "A",false, "Revisión",false));
+			Crepository.save(new Consulta(medico1, paciente6, LocalTime.of(9,45,00), LocalDate.of(2022, 04, 24), 1, "A",false, "Pauta completa",false));
+			Crepository.save(new Consulta(medico1, paciente7, LocalTime.of(9,55,00), LocalDate.of(2022, 04, 24), 1, "A",false, "Revisión",false));
+			Crepository.save(new Consulta(medico1, paciente8, LocalTime.of(10,05,00), LocalDate.of(2022, 04, 24), 1, "A",false, "Revisión",false));
+			Crepository.save(new Consulta(medico2, paciente9, LocalTime.of(10,00,00), LocalDate.of(2022, 04, 24), 2, "B",false, " Pauta completa", false));
+			Crepository.save(new Consulta(medico2, paciente10, LocalTime.of(10,10,00), LocalDate.of(2022, 04, 24), 2, "B",false, " Ha pasado el covid", false));
+			Crepository.save(new Consulta(medico2, paciente11, LocalTime.of(10,20,00), LocalDate.of(2022, 04, 24), 2, "B",false, " Ha pasado el covid", false));
+			Crepository.save(new Consulta(medico2, paciente12, LocalTime.of(10,30,00), LocalDate.of(2022, 04, 24), 2, "B",false, " Ha pasado el covid", false));
 			
 		};
 	}
