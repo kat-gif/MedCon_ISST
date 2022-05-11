@@ -97,8 +97,16 @@
                     <ul th:each="Consulta: ${consultasPaciente}">
                         <div class="card mb-3 rounded-3 shadow-lg">
                             <div class="row-flecha card-header py-3 text-white btn-principal">
-                                <input class="column" th:if="${Consulta.llamado == false}" type="button" 
-                                    onclick="history.back()" id="Volver" value="🢀">
+
+                                <form th:action="@{/medcon/flecha/volver}" method="post">
+                                    
+                                         <input id="usuario" type="hidden" name="usuario" 
+                                         th:value = "${Consulta.medico.usuario}">
+
+                                        <input class="column" th:if="${Consulta.llamado == false}" type="submit" 
+                                         id="Volver" value="🢀">
+                                </form> 
+
                                 <h4 class=" column-nombre my-0 fs-2 text-center">
                                     <span style="font-weight: bold;" th:text="${Consulta.paciente.nombre}"></span>
                                 </h4>

@@ -1,6 +1,5 @@
 package es.upm.dit.isst.medapi.model;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import javax.persistence.*;

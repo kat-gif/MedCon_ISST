@@ -12,8 +12,6 @@ import es.upm.dit.isst.medapi.model.Paciente;
 import es.upm.dit.isst.medapi.repository.ConsultaRepository;
 import es.upm.dit.isst.medapi.repository.MedicoRepository;
 import es.upm.dit.isst.medapi.repository.PacienteRepository;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
@@ -49,12 +47,22 @@ public class ConsultaController {
   //En la ruta "/consultas/medico/{usuario}" vuelca una lista de Consultas
   // filtrada por el {usuario} introducido en la ruta. De la lista de médicos busca el {usuario} 
   // y lo introduce para la búsqueda de las consultas de ese {usuario}
+  @GetMapping("/consultas/medico/{usuario}/{contraseña}")
+  List<Consulta> readByMedicoYContraseña(@PathVariable String usuario, @PathVariable String contraseña) {
+    Medico medico = (Medico) medicoRepository.findByUsuario(usuario);
+    List<Consulta> consultas = new ArrayList<Consulta>();
+    if(medico.getContraseña().equals(contraseña)){
+      consultas = consultaRepository.findByMedico(medico);
+    }
+    return (List<Consulta>) consultas;
+  }
+
+  //En la ruta "consultas/medico/{usuario}" devuelve la lista de consultas filtrada por el usuario del médico
   @GetMapping("/consultas/medico/{usuario}")
   List<Consulta> readByMedico(@PathVariable String usuario) {
     Medico medico = (Medico) medicoRepository.findByUsuario(usuario);
     return (List<Consulta>) consultaRepository.findByMedico(medico);
   }
-
   
   //En la ruta "/consultas/paciente/{nombre}" vuelca una lista del contenido del modelo de datos Consulta
   // filtrada por el {nombre} del paciente introducido en la ruta

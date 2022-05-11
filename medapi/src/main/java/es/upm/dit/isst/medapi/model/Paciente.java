@@ -10,7 +10,7 @@ public class Paciente {
 
     private Integer DNI;
 
-    protected Paciente() {}
+    public Paciente() {}
 
     public Paciente(String nombre, Integer dNI) {
         this.nombre = nombre;

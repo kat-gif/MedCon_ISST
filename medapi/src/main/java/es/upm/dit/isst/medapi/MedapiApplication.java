@@ -1,6 +1,5 @@
 package es.upm.dit.isst.medapi;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -70,7 +69,7 @@ public class MedapiApplication {
 			Crepository.save(new Consulta(medico2, paciente9, LocalTime.of(10,00,00), LocalDate.of(2022, 04, 24), 2, "B",false, " Pauta completa", false));
 			Crepository.save(new Consulta(medico2, paciente10, LocalTime.of(10,10,00), LocalDate.of(2022, 04, 24), 2, "B",false, " Ha pasado el covid", false));
 			Crepository.save(new Consulta(medico2, paciente11, LocalTime.of(10,20,00), LocalDate.of(2022, 04, 24), 2, "B",false, " Ha pasado el covid", false));
-			Crepository.save(new Consulta(medico2, paciente12, LocalTime.of(10,30,00), LocalDate.of(2022, 04, 24), 2, "B",false, " Ha pasado el covid", false));
+			Crepository.save(new Consulta(medico3, paciente12, LocalTime.of(10,30,00), LocalDate.of(2022, 04, 24), 2, "C",false, " Ha pasado el covid", false));
 			
 		};
 	}

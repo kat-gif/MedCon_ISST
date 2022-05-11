@@ -12,7 +12,7 @@ public class Medico {
     private String contraseña;
     private String especialidad;
 
-    protected Medico(){}
+    public Medico(){}
 
     public Medico(String usuario, String nombre, String contraseña, String especialidad) {
         this.nombre = nombre;
