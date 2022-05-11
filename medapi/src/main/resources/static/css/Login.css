@@ -116,6 +116,10 @@ p{
     margin-right: 30%;
 }
 
+p#error {
+    color: rgb(174, 12, 12);
+}
+
 #user{
     width: 200px;
     height: 20px;

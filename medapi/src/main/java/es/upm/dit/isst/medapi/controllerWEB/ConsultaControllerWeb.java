@@ -38,7 +38,7 @@ public class ConsultaControllerWeb {
         if(usuario!="" && contraseña!=""){
                 lista = Arrays.asList(restTemplate.getForEntity(CONSULTAMANAGER_STRING + "medico/" + usuario + "/" + contraseña, Consulta[].class).getBody());
                 if(lista.isEmpty()){
-                    return "login";
+                    return "loginError";
                 } else {
                     model.addAttribute("consultasMedico", lista);
                     return "agenda";

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <link rel="icon" type="image/png" th:href="@{/img/medcon_icon.png}" />
+        <title>MedCon - Inicio de Sesión</title>
+        <meta charset="utf-8">
+        <link rel = "stylesheet" type= "text/css" th:href="@{/css/Login.css}">
+    </head>
+
+    <body>
+        <section id="mid-left">
+            <img th:src="@{../../img/medcon.PNG}"/> 
+            <h2>CENTRO MÉDICO <br> HIGÍA</h2>
+        </section>
+    
+        <section id="mid-right">
+            <h3>Inicio de Sesión</h3>
+            <div>
+                <p>Introduzca el nombre de usuario y <br> la contraseña y pulse Enter</p>
+            </div>
+            <form th:action="@{/medcon/agenda}" method="post"> <!--Esto es equivalente al PostMappping-->
+                <div>    
+                    <input id="usuario" type="text" name="usuario" placeholder="Usuario">
+                </div>
+                <div>
+                    <input id="contraseña" type="password" name="contraseña" placeholder="Contraseña">
+                </div>
+                <input id="enter" type="submit" value="Enter">
+                <p id="error">La contraseña introducida es incorrecta. <br>Vuelva a intentarlo.</p>
+            </form>
+        </section>
+    </body>
+    
+</html>
